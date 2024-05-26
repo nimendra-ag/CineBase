@@ -8,6 +8,8 @@ import Categories from './Pages/Categories/Categories';
 import Watchlist from './Pages/Watchlist/Watchlist';
 import Account from './Pages/Account/Account';
 import Reviews from './Pages/Reviews/Reviews';
+import Signin from './Pages/Signin/Signin';
+import Signup from './Pages/Signup/Signup';
 function App() {
 
   return (
@@ -20,6 +22,8 @@ function App() {
           <Route path='/watchlist' element={<Watchlist />} />
           <Route path='/account' element={<Account />} />
           <Route path='/reviews' element={<Reviews />} />
+          <Route path='/login' element={<Signin/>}/>
+          <Route path='/signup' element={<Signup/>}/>
         </Routes>
       </BrowserRouter>
     </>
