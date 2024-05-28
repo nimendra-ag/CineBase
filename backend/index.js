@@ -1,3 +1,4 @@
+const port = 4000
 const express = require("express")
 const app = express();
 const mongoose = require("mongoose");
@@ -11,7 +12,7 @@ app.use(express.json());
 app.use(cors());
 
 const UserModel = require("./models/User");
-
+const MovieModel = require("./models/Movie");
 mongoose.connect("mongodb://127.0.0.1:27017/CineBase");
 
 
@@ -22,6 +23,79 @@ app.get("/", (req, res) => {
 
 app.get("/name", (req, res)=>{
     res.send("Hello from the name");
+})
+
+//Image storage engine
+
+const storage = multer.diskStorage({
+    destination: './upload/images',
+    filename: (req, file, cb)=>{
+        return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
+    }
+})
+
+const upload = multer({storage:storage})
+
+//Creating Upload endpoint for images
+app.use('/images', express.static('upload/images'))
+
+app.post('/upload',upload.single('movie'), (req, res)=>{
+    res.json({
+        success:1,
+        image_url: `http://localhost:${port}/images/${req.file.filename}`
+    })
+})
+
+//Creating the endpoint for adding the movie
+
+app.post('/addmovie', async (req, res)=>{
+    let movies = await MovieModel.find({});
+    let id;
+    if(movies.length>0){
+        let last_movie_array = movies.slice(-1);
+        let last_movie = last_movie_array[0];
+        id = last_movie.id + 1;
+    }
+    else{
+        id = 1;
+    }
+    const movie = new MovieModel({
+        id:id,
+        name:req.body.name,
+        image: req.body.image,
+        trailor: req.body.trailor,
+        director: req.body.director,
+        release_date: req.body.release_date,
+        genre: req.body.genre,
+        staring: req.body.staring,
+        description: req.body.description
+    });
+
+    console.log(movie);
+    await movie.save();
+    console.log("Saved");
+    res.json({
+        success: true,
+        name:req.body.name,
+    })
+})
+
+
+//Creating the endpoint for deleting movies
+app.post('/removemovie', async (req, res)=>{
+    await MovieModel.findOneAndDelete({id:req.body.id});
+    console.log("Removed");
+    res.json({
+        success:true,
+        name:req.body.name
+    })
+})
+
+//Creating the API for getting all products
+app.get('/allmovies', async (req, res)=>{
+    let movies = await MovieModel.find({});
+    console.log("All Movies Fetched.")
+    res.send(movies);
 })
 
 
@@ -82,9 +156,9 @@ app.post('/signin', async(req, res)=>{
 })
 
 
-app.listen(3002, (error) => {
+app.listen(port, (error) => {
     if(!error){
-        console.log('Server is running on port 3002');
+        console.log(`Server is running on port ${port}`);
     }
     else{
         console.log(`Error ${error}`);
