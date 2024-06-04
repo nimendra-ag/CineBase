@@ -11,6 +11,8 @@ import Account from './Pages/Account/Account';
 import Reviews from './Pages/Reviews/Reviews';
 import Signin from './Pages/Signin/Signin';
 import Signup from './Pages/Signup/Signup';
+import TVShows from './Pages/TVShows/TVShows';
+import Movies from './Pages/Movies/Movies';
 function App() {
 
   return (
@@ -25,6 +27,8 @@ function App() {
           <Route path='/reviews' element={<Reviews />} />
           <Route path='/login' element={<Signin/>}/>
           <Route path='/signup' element={<Signup/>}/>
+          <Route path='/tvshows' element={<TVShows/>}/>
+          <Route path='/movies' element={<Movies/>}/>
         </Routes>
       </BrowserRouter>
     </>
