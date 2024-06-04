@@ -42,7 +42,7 @@ const Signin = () => {
     return (
         <div>
 
-            <div className="form-signin">
+            <div className="form-signin" style={{marginTop:'100px'}}>
 
                 <form>
                     <img className="mb-4" style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto' }} src={Logo} alt="" width="72" height="57" />

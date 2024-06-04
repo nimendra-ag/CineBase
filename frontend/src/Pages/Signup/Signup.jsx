@@ -33,7 +33,7 @@ const Signup = () => {
     }
 
     return (
-        <section className="portfolio section-padding" id="contact">
+        <section className="portfolio section-padding" id="contact" style={{marginTop:'100px'}}>
 
             <div className="container-fluid">
 
