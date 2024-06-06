@@ -160,68 +160,93 @@ const Home = () => {
 
                       {/* <!--Bootstrap card--> */}
                       <div class="row row-cols-1 row-cols-md-4 g-3">
-                        <div class="col col-md-6 col-xl-3">
+                        <div class="col col-md-4 col-lg-2 col-xl-2">
                           <div class="card h-100">
-                            <img src="https://picsum.photos/500/300" class="card-img-top"
+                            <img src="https://picsum.photos/300/440" class="card-img-top"
                               alt="..." />
                             <div class="card-body">
-                              <h5 class="card-title">Card title</h5>
-                              <p class="card-text">This is a wider card with supporting text
-                                below as a natural lead-in to additional content. This
-                                content is a little bit longer.</p>
+                              <h5 class="card-title">Spider Man</h5>
+                              <p><i class="bi bi-star-fill"></i> 5.5</p>
+                              <a href="#" class="btn btn-primary"><i class="bi bi-bookmark-plus"></i> Watchlist</a>
                             </div>
                             <div class="card-footer">
-                              <small class="text-body-secondary">Last updated 3 mins
-                                ago</small>
+                            <a href="#" class="btn btn-primary"><i class="bi bi-play"></i> Trailor</a>
+
                             </div>
                           </div>
                         </div>
-                        <div class="col col-md-6 col-xl-3">
+                        <div class="col col-md-4 col-lg-2 col-xl-2">
                           <div class="card h-100">
-                            <img src="https://picsum.photos/500/300" class="card-img-top"
+                            <img src="https://picsum.photos/300/440" class="card-img-top"
                               alt="..." />
                             <div class="card-body">
-                              <h5 class="card-title">Card title</h5>
-                              <p class="card-text">This card has supporting text below as a
-                                natural lead-in to additional content.</p>
+                              <h5 class="card-title">Spider Man</h5>
+                              <p><i class="bi bi-star-fill"></i> 5.5</p>
+                              <a href="#" class="btn btn-primary"><i class="bi bi-bookmark-plus"></i> Watchlist</a>
                             </div>
                             <div class="card-footer">
-                              <small class="text-body-secondary">Last updated 3 mins
-                                ago</small>
+                            <a href="#" class="btn btn-primary"><i class="bi bi-play"></i> Trailor</a>
+
                             </div>
                           </div>
                         </div>
-                        <div class="col col-md-6 col-xl-3">
+                        <div class="col col-md-4 col-lg-2 col-xl-2">
                           <div class="card h-100">
-                            <img src="https://picsum.photos/500/300" class="card-img-top"
+                            <img src="https://picsum.photos/300/440" class="card-img-top"
                               alt="..." />
                             <div class="card-body">
-                              <h5 class="card-title">Card title</h5>
-                              <p class="card-text">This is a wider card with supporting text
-                                below as a natural lead-in to additional content. This card
-                                has even longer content than the first to show that equal
-                                height action.</p>
+                              <h5 class="card-title">Spider Man</h5>
+                              <p><i class="bi bi-star-fill"></i> 5.5</p>
+                              <a href="#" class="btn btn-primary"><i class="bi bi-bookmark-plus"></i> Watchlist</a>
                             </div>
                             <div class="card-footer">
-                              <small class="text-body-secondary">Last updated 3 mins
-                                ago</small>
+                            <a href="#" class="btn btn-primary"><i class="bi bi-play"></i> Trailor</a>
+
                             </div>
                           </div>
                         </div>
-                        <div class="col col-md-6 col-xl-3">
+                        <div class="col col-md-4 col-lg-2 col-xl-2">
                           <div class="card h-100">
-                            <img src="https://picsum.photos/500/300" class="card-img-top"
+                            <img src="https://picsum.photos/300/440" class="card-img-top"
                               alt="..." />
                             <div class="card-body">
-                              <h5 class="card-title">Card title</h5>
-                              <p class="card-text">This is a wider card with supporting text
-                                below as a natural lead-in to additional content. This card
-                                has even longer content than the first to show that equal
-                                height action.</p>
+                              <h5 class="card-title">Spider Man</h5>
+                              <p><i class="bi bi-star-fill"></i> 5.5</p>
+                              <a href="#" class="btn btn-primary"><i class="bi bi-bookmark-plus"></i> Watchlist</a>
                             </div>
                             <div class="card-footer">
-                              <small class="text-body-secondary">Last updated 3 mins
-                                ago</small>
+                            <a href="#" class="btn btn-primary"><i class="bi bi-play"></i> Trailor</a>
+
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col col-md-4 col-lg-2 col-xl-2">
+                          <div class="card h-100">
+                            <img src="https://picsum.photos/300/440" class="card-img-top"
+                              alt="..." />
+                            <div class="card-body">
+                              <h5 class="card-title">Spider Man</h5>
+                              <p><i class="bi bi-star-fill"></i> 5.5</p>
+                              <a href="#" class="btn btn-primary"><i class="bi bi-bookmark-plus"></i> Watchlist</a>
+                            </div>
+                            <div class="card-footer">
+                            <a href="#" class="btn btn-primary"><i class="bi bi-play"></i> Trailor</a>
+
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col col-md-4 col-lg-2 col-xl-2">
+                          <div class="card h-100">
+                            <img src="https://picsum.photos/300/440" class="card-img-top"
+                              alt="..." />
+                            <div class="card-body">
+                              <h5 class="card-title">Spider Man</h5>
+                              <p><i class="bi bi-star-fill"></i> 5.5</p>
+                              <a href="#" class="btn btn-primary"><i class="bi bi-bookmark-plus"></i> Watchlist</a>
+                            </div>
+                            <div class="card-footer">
+                            <a href="#" class="btn btn-primary"><i class="bi bi-play"></i> Trailor</a>
+
                             </div>
                           </div>
                         </div>
