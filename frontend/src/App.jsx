@@ -13,6 +13,7 @@ import Signin from './Pages/Signin/Signin';
 import Signup from './Pages/Signup/Signup';
 import TVShows from './Pages/TVShows/TVShows';
 import Movies from './Pages/Movies/Movies';
+import MediaDisplay from './Components/MediaDisplay/MediaDisplay';
 function App() {
 
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path='/signup' element={<Signup/>}/>
           <Route path='/tvshows' element={<TVShows/>}/>
           <Route path='/movies' element={<Movies/>}/>
+          <Route path='/mediadisplay' element={<MediaDisplay/>}/>
         </Routes>
       </BrowserRouter>
     </>
