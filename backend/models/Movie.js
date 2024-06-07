@@ -9,7 +9,7 @@ const MovieModel = mongoose.model('Movies',{
         required:true
     },
     
-    image:{
+    images:{
         type: Object,
         required: true
     },
@@ -24,24 +24,24 @@ const MovieModel = mongoose.model('Movies',{
         required:true
     },
 
-    release_date:{
-        type: Date,
+    released_year:{
+        type: String,
         required: true,
     },
     
     rating:{ 
         type: Number,
-        default: 0
+        required: true
     },
 
     genre:{
         type: Object,
-
+        required: true
     },
 
     staring:{
         type: Object,
-
+        required: true
     },
 
     description:{
@@ -49,6 +49,10 @@ const MovieModel = mongoose.model('Movies',{
         required: true
     },
 
+    reviews:{
+        type: Object,
+        required: false
+    }
 
 })
 

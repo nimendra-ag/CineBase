@@ -35,6 +35,7 @@ function App() {
           <Route path='/moviedisplay' element={<MovieDisplay/>}/>
           <Route path='/tvshowdisplay' element={<TVShowDisplay/>}/>
           <Route path='/profile' element={<Profile/>}/>
+
         </Routes>
       </BrowserRouter>
     </>

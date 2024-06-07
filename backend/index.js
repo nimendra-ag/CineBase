@@ -30,21 +30,22 @@ app.get("/name", (req, res)=>{
 const storage = multer.diskStorage({
     destination: './upload/images',
     filename: (req, file, cb)=>{
-        return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
+        return cb(null, `${file.fieldname}_${Date.now()}_${path.basename(file.originalname)}`)
     }
 })
 
 const upload = multer({storage:storage})
 
 //Creating Upload endpoint for images
-app.use('/images', express.static('upload/images'))
+app.use('/images', express.static('upload/images'))    //path of the folder 
 
-app.post('/upload',upload.single('movie'), (req, res)=>{
+app.post('/upload',upload.single('media'), (req, res)=>{       //to upload any image, we will use this endpoint
     res.json({
         success:1,
         image_url: `http://localhost:${port}/images/${req.file.filename}`
     })
 })
+
 
 //Creating the endpoint for adding the movie
 
@@ -62,18 +63,20 @@ app.post('/addmovie', async (req, res)=>{
     const movie = new MovieModel({
         id:id,
         name:req.body.name,
-        image: req.body.image,
+        images: req.body.images,
         trailor: req.body.trailor,
         director: req.body.director,
-        release_date: req.body.release_date,
+        released_year: req.body.released_year,
         genre: req.body.genre,
         staring: req.body.staring,
-        description: req.body.description
+        description: req.body.description,
+        rating: req.body.rating
     });
 
     console.log(movie);
     await movie.save();
-    console.log("Saved");
+
+    console.log("Movie Saved");
     res.json({
         success: true,
         name:req.body.name,
