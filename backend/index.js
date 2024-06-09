@@ -83,6 +83,15 @@ app.post('/addmovie', async (req, res)=>{
     })
 })
 
+//Creating API for deleting a Movie
+app.post('/removemovie', async (req, res)=>{
+    await MovieModel.findOneAndDelete({id:req.body.id});
+    console.log("Removed");
+    res.json({
+        success: true,
+        name: req.body.name
+    })
+})
 
 //Creating the endpoint for deleting movies
 app.post('/removemovie', async (req, res)=>{
@@ -102,6 +111,14 @@ app.get('/allmovies', async (req, res)=>{
 })
 
 
+
+//creating api for getting all movies
+app.get('/allmovies', async (req, res)=>{
+    let movies = await MovieModel.find({});
+    console.log("All Movies Fetched.");
+
+    res.send()
+})
 //End point fot registering the user
 app.post('/signup', async(req, res)=>{
     let check = await UserModel.findOne({email:req.body.email})
