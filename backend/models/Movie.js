@@ -1,4 +1,21 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const reviewSchema = new Schema({
+    author: {
+        type: String,
+        required: true
+    },
+    comment: {
+        type: String,
+        required: true
+    },
+    date: {
+        type: Date,
+        default: Date.now
+    }
+});
+
 const MovieModel = mongoose.model('Movies',{
     id:{
         type:Number,
@@ -9,8 +26,18 @@ const MovieModel = mongoose.model('Movies',{
         required:true
     },
     
-    images:{
-        type: Object,
+    caroImage:{
+        type: String,
+        required: true
+    },
+
+    cardImage:{
+        type: String,
+        required: true
+    },
+
+    displayImage:{
+        type: String,
         required: true
     },
 
@@ -24,23 +51,33 @@ const MovieModel = mongoose.model('Movies',{
         required:true
     },
 
-    released_year:{
+    releasedYear:{
         type: String,
         required: true,
     },
     
     rating:{ 
-        type: Number,
+        type: String,
         required: true
     },
 
-    genre:{
-        type: Object,
+    genre1:{
+        type: String,
         required: true
     },
 
-    staring:{
-        type: Object,
+    genre2:{
+        type: String,
+        required: true
+    },
+
+    leadActor:{
+        type: String,
+        required: true
+    },
+
+    supportActor:{
+        type: String,
         required: true
     },
 
@@ -49,9 +86,10 @@ const MovieModel = mongoose.model('Movies',{
         required: true
     },
 
-    reviews:{
-        type: Object,
-        required: false
+    reviews: {
+        type: [reviewSchema], // Array of review objects
+        required: false,
+        default: [] // Initialize with an empty array
     }
 
 })

@@ -16,7 +16,7 @@ const MovieModel = require("./models/Movie");
 mongoose.connect("mongodb://127.0.0.1:27017/CineBase");
 
 
-//API Creation    
+// API Creation    
 app.get("/", (req, res) => {
     res.send("Hello World");
 })
@@ -63,14 +63,18 @@ app.post('/addmovie', async (req, res)=>{
     const movie = new MovieModel({
         id:id,
         name:req.body.name,
-        images: req.body.images,
+        caroImage: req.body.caroImage,
+        cardImage: req.body.cardImage,
+        displayImage: req.body.displayImage,
         trailor: req.body.trailor,
         director: req.body.director,
-        released_year: req.body.released_year,
-        genre: req.body.genre,
-        staring: req.body.staring,
+        releasedYear: req.body.releasedYear,
+        rating: req.body.rating,
+        genre1: req.body.genre1,
+        genre2: req.body.genre2,
+        leadActor: req.body.leadActor,
+        supportActor: req.body.supportActor,
         description: req.body.description,
-        rating: req.body.rating
     });
 
     console.log(movie);
@@ -93,24 +97,6 @@ app.post('/removemovie', async (req, res)=>{
     })
 })
 
-//Creating the endpoint for deleting movies
-app.post('/removemovie', async (req, res)=>{
-    await MovieModel.findOneAndDelete({id:req.body.id});
-    console.log("Removed");
-    res.json({
-        success:true,
-        name:req.body.name
-    })
-})
-
-//Creating the API for getting all products
-app.get('/allmovies', async (req, res)=>{
-    let movies = await MovieModel.find({});
-    console.log("All Movies Fetched.")
-    res.send(movies);
-})
-
-
 
 //creating api for getting all movies
 app.get('/allmovies', async (req, res)=>{
@@ -119,6 +105,8 @@ app.get('/allmovies', async (req, res)=>{
 
     res.send()
 })
+
+
 //End point fot registering the user
 app.post('/signup', async(req, res)=>{
     let check = await UserModel.findOne({email:req.body.email})
@@ -146,34 +134,34 @@ app.post('/signup', async(req, res)=>{
 
 
 // API for signin
-app.post('/signin', async(req, res)=>{
-    let user = await UserModel.findOne({email: req.body.email});
-    console.log(user)
-    if(user){
-        console.log("it came here")
-        const passCompare = req.body.password == user.password;
-        console.log(passCompare)
-        if(passCompare){
-            console.log("it came passcomapre")
-            const data = {
-                user:{
-                    id:user.id
-                }
-            }
-            console.log(data)
-            const token = jwt.sign(data, 'secret_cinebase_user');
-            res.json({success:true, token:token});
-            console.log("token assigned: ", token);
+// app.post('/signin', async(req, res)=>{
+//     let user = await UserModel.findOne({email: req.body.email});
+//     console.log(user)
+//     if(user){
+//         console.log("it came here")
+//         const passCompare = req.body.password == user.password;
+//         console.log(passCompare)
+//         if(passCompare){
+//             console.log("it came passcomapre")
+//             const data = {
+//                 user:{
+//                     id:user.id
+//                 }
+//             }
+//             console.log(data)
+//             const token = jwt.sign(data, 'secret_cinebase_user');
+//             res.json({success:true, token:token});
+//             console.log("token assigned: ", token);
             
-        }
-        else{
-            res.json({success:false, error:"Invalid Password"});
-        }
-    }
-    else{
-        res.json(({success:false, error:"Invalid Email"}));
-    }
-})
+//         }
+//         else{
+//             res.json({success:false, error:"Invalid Password"});
+//         }
+//     }
+//     else{
+//         res.json(({success:false, error:"Invalid Email"}));
+//     }
+// })
 
 
 app.listen(port, (error) => {

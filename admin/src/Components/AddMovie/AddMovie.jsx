@@ -1,55 +1,127 @@
 import React, { useState } from 'react'
 import './AddMovie.css'
 import upload_area from '../../assets/upload_area.svg'
+import axios from 'axios';
+
 
 const AddMovie = () => {
-    const [image, setImage] = useState(false);
-    const [productDetails, setProductDetails] = useState({
-        name: "",
-        image: "",
-        category: "women",
-        new_price: "",
-        old_price: ""
-    });
+    const [caroImage, setCaroImage] = useState(false);
+    const [cardImage, setCardImage] = useState(false);
+    const [displayImage, setDisplayImage] = useState(false);
 
-    const imageHandler = (e) => {
-        setImage(e.target.files[0]);
+    const [movieDetails, setMovieDetails] = useState({
+        name: "",
+        caroImage: "",
+        cardImage: "",
+        displayImage: "",
+        trailor: "",
+        director: "",
+        releasedYear: "",
+        rating: 0,
+        genre1: "",
+        genre2: "",
+        leadActor: "",
+        supportActor: "",
+        description: "",
+    })
+
+    const displayImageHandler = (e) => {
+        
+        setDisplayImage(e.target.files[0]);
+        console.log(`Image added, ${displayImage}`);
+    }
+
+    const cardImageHandler = (e) => {
+        
+        setCardImage(e.target.files[0]);
+        console.log(`Image added, ${cardImage}`);
+    }
+
+    const caroImageHandler = (e) => {
+       
+        setCaroImage(e.target.files[0]);
+        console.log(`Image added, ${caroImage}`);
     }
 
     const changeHandler = (e) => {
-        setProductDetails({ ...productDetails, [e.target.name]: e.target.value })
+        setMovieDetails({ ...movieDetails, [e.target.name]: e.target.value })
     }
 
-    const Add_Product = async () => {
-        console.log(productDetails)
+    const Add_Movie = async () =>{
+        console.log(movieDetails);
+        let responseDataCaro;
+        let responseDataCard;
+        let responseDataDisplay;
+        let movie = movieDetails;
+        let formDataCaro = new FormData();
+        let formDataCard = new FormData();
+        let formDataDisplay = new FormData();
 
-        let responseData;
-        let product = productDetails;
+        formDataCaro.append('media', caroImage);
+        formDataCard.append('media', cardImage);
+        formDataDisplay.append('media', displayImage);
 
-        let formData = new FormData();
-        formData.append('product', image);
-
-        await fetch('http://localhost:3001/upload', {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-            },
-            body: formData,
-        }).then((resp) => resp.json().then((data) => { responseData = data }))
-
-        if (responseData.success) {
-            product.image = responseData.image_url;
-            console.log(product);
-            await fetch('http://localhost:3001/addproduct', {
-                method: 'POST',
+        try {
+            const response = await axios.post('http://localhost:4000/upload', formDataCaro, {
                 headers: {
                     Accept: 'application/json',
-                    'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(product),
-            }).then((resp) => resp.json()).then((data) => {
-                data.success ? alert("Product Added") : alert("Failed to add product")
-            })
+            });
+            responseDataCaro = response.data;
+            console.log(responseDataCaro);
+        } catch (error) {
+            console.error('Error uploading images:', error);
+        }
+
+        try {
+            const response = await axios.post('http://localhost:4000/upload', formDataCard, {
+                headers: {
+                    Accept: 'application/json',
+                },
+            });
+            responseDataCard = response.data;
+            console.log(responseDataCard);
+        } catch (error) {
+            console.error('Error uploading images:', error);
+        }
+
+        try {
+            const response = await axios.post('http://localhost:4000/upload', formDataDisplay, {
+                headers: {
+                    Accept: 'application/json',
+                },
+            });
+            responseDataDisplay = response.data;
+            console.log(responseDataDisplay);
+        } catch (error) {
+            console.error('Error uploading images:', error);
+        }
+
+        if(responseDataCaro.success && responseDataCard.success && responseDataDisplay.success){
+            movie.caroImage = responseDataCaro.image_url;
+            movie.cardImage = responseDataCard.image_url;
+            movie.displayImage = responseDataDisplay.image_url;
+
+            console.log(movie);
+
+            try {
+            const response = await axios.post('http://localhost:4000/addmovie', movieDetails, {
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            if (response.data.success) {
+                alert("Movie Added");
+            } else {
+                alert("Failed to add Movie");
+            }
+        } catch (error) {
+            console.error('Error adding movie:', error.response ? error.response.data : error.message);
+            alert("Failed to add Movie");
+        }
+            
         }
 
     }
@@ -58,84 +130,105 @@ const AddMovie = () => {
             <div className="addproduct-price">
                 <div className="addproduct-itemfield">
                     <p>Name</p>
-                    <input value={productDetails.old_price} onChange={changeHandler} type="text" name='old_price' placeholder='Type here' />
+                    <input value={movieDetails.name} onChange={changeHandler} type="text" name='name' placeholder='Type here' />
 
                 </div>
                 <div className="addproduct-itemfield">
                     <p>Released Year</p>
-                    <input value={productDetails.new_price} onChange={changeHandler} type="text" name='new_price' placeholder='Type here' />
+                    <input value={movieDetails.releasedYear} onChange={changeHandler} type="text" name='releasedYear' placeholder='Type here' />
                 </div>
             </div>
             <div className="addproduct-price">
                 <div className="addproduct-itemfield">
                     <p>Lead Actor</p>
-                    <input value={productDetails.old_price} onChange={changeHandler} type="text" name='old_price' placeholder='Type here' />
+                    <input value={movieDetails.leadActor} onChange={changeHandler} type="text" name='leadActor' placeholder='Type here' />
 
                 </div>
                 <div className="addproduct-itemfield">
                     <p>Support Actor</p>
-                    <input value={productDetails.new_price} onChange={changeHandler} type="text" name='new_price' placeholder='Type here' />
+                    <input value={movieDetails.supportActor} onChange={changeHandler} type="text" name='supportActor' placeholder='Type here' />
                 </div>
             </div>
             <div className="addproduct-price">
                 <div className="addproduct-itemfield">
                     <p>Youtube Trailor Link</p>
-                    <input value={productDetails.old_price} onChange={changeHandler} type="text" name='old_price' placeholder='Type here' />
+                    <input value={movieDetails.trailorLink} onChange={changeHandler} type="text" name='trailor' placeholder='Type here' />
 
                 </div>
                 <div className="addproduct-itemfield">
                     <p>Director</p>
-                    <input value={productDetails.new_price} onChange={changeHandler} type="text" name='new_price' placeholder='Type here' />
+                    <input value={movieDetails.director} onChange={changeHandler} type="text" name='director' placeholder='Type here' />
                 </div>
             </div>
 
             <div className="addproduct-itemfield">
                 <p>Description</p>
-                <textarea value={productDetails.name} onChange={changeHandler} type="text" name='name' placeholder='Type here' />
+                <textarea value={movieDetails.description} onChange={changeHandler} type="text" name='description' placeholder='Type here' />
             </div>
 
             <div className="addproduct-price">
-                <div className="addproduct-price">
-                    <div className="addproduct-itemfield">
+                <div className="addproduct-itemfield">
+                    <p>IMDB Rating</p>
+                    <input value={movieDetails.rating} onChange={changeHandler} type="text" name='rating' placeholder='Type here' />
+
+                </div>
+
+                <div className="addproduct-itemfield">
                         <p>Genre 1</p>
-                        <select value={productDetails.category} onChange={changeHandler} name="category" className='add-product-selector'>
-                            <option value="women">Women</option>
-                            <option value="men">Men</option>
-                            <option value="kid">Kid</option>
+                        <select value={movieDetails.genre1} onChange={changeHandler} name="genre1" className='add-product-selector'>
+                            <option value="Drama">Drama</option>
+                            <option value="Adventure">Adventure</option>
+                            <option value="Sci-Fi">Sci-Fi</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Comady">Comady</option>
+                            <option value="Fantasy">Fantasy</option>
                         </select>
 
                     </div>
                     <div className="addproduct-itemfield">
                         <p>Genre 2</p>
-                        <select value={productDetails.category} onChange={changeHandler} name="category" className='add-product-selector'>
-                            <option value="women">Women</option>
-                            <option value="men">Men</option>
-                            <option value="kid">Kid</option>
+                        <select value={movieDetails.genre2} onChange={changeHandler} name="genre2" className='add-product-selector'>
+                            <option value="Drama">Drama</option>
+                            <option value="Adventure">Adventure</option>
+                            <option value="Sci-Fi">Sci-Fi</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Comady">Comady</option>
+                            <option value="Fantasy">Fantasy</option>
                         </select>
                     </div>
+            </div>
+
+            <div className="addproduct-price">
+                <div className="addproduct-price">
+                    
 
                     <div className="addproduct-itemfield">
-                        <label htmlFor="file-input">
-                            <img src={image ? URL.createObjectURL(image) : upload_area} className='addproduct-thumbnail-img' alt="" />
+                        <label htmlFor="caro-file-input">
+                            <img src={caroImage ? URL.createObjectURL(caroImage) : upload_area} className='addproduct-thumbnail-img' alt="" />
                         </label>
-                        <input type="file" onChange={imageHandler} name='image' id='file-input' hidden />
+                        <input type="file" onChange={caroImageHandler} name='caroImage' id='caro-file-input' hidden />
+                        <p>Carousel</p>
                     </div>
-                    <div className="addproduct-itemfield">
-                        <label htmlFor="file-input">
-                            <img src={image ? URL.createObjectURL(image) : upload_area} className='addproduct-thumbnail-img' alt="" />
+
+                     <div className="addproduct-itemfield">
+                        <label htmlFor="card-file-input">
+                            <img src={cardImage ? URL.createObjectURL(cardImage) : upload_area} className='addproduct-thumbnail-img' alt="" />
                         </label>
-                        <input type="file" onChange={imageHandler} name='image' id='file-input' hidden />
-                    </div>
-                    <div className="addproduct-itemfield">
-                        <label htmlFor="file-input">
-                            <img src={image ? URL.createObjectURL(image) : upload_area} className='addproduct-thumbnail-img' alt="" />
+                        <input type="file" onChange={cardImageHandler} name='cardImage' id='card-file-input' hidden />
+                        <p>Card</p>
+                    </div> 
+
+                     <div className="addproduct-itemfield">
+                        <label htmlFor="display-file-input">
+                            <img src={displayImage ? URL.createObjectURL(displayImage) : upload_area} className='addproduct-thumbnail-img' alt="" />
                         </label>
-                        <input type="file" onChange={imageHandler} name='image' id='file-input' hidden />
-                    </div>
+                        <input type="file" onChange={displayImageHandler} name='displayImage' id='display-file-input' hidden />
+                        <p>Display</p>
+                    </div> 
                 </div>
             </div>
 
-            <button onClick={() => { Add_Product() }} className='addproduct-button'>ADD</button>
+            <button onClick={() => { Add_Movie() }} className='addproduct-button'>ADD</button>
         </div>
     )
 }
