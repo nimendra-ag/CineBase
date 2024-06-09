@@ -103,7 +103,7 @@ app.get('/allmovies', async (req, res)=>{
     let movies = await MovieModel.find({});
     console.log("All Movies Fetched.");
 
-    res.send()
+    res.send(movies)
 })
 
 
