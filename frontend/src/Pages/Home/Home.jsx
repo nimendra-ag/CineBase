@@ -145,9 +145,9 @@ const Home = () => {
 
         <div class="section">
           <div class="container p-5" id="services">
-            <PopularInThisWeek/>
+            {/* <PopularInThisWeek/>
             <TVShowsComponent/>
-            <PopularMoviesComponent/>
+            <PopularMoviesComponent/> */}
           </div>
         </div>
 

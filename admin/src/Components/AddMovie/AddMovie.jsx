@@ -17,9 +17,9 @@ const AddMovie = () => {
         trailor: "",
         director: "",
         releasedYear: "",
-        rating: 0,
-        genre1: "",
-        genre2: "",
+        rating: "",
+        genre1: "Drama",
+        genre2: "Drama",
         leadActor: "",
         supportActor: "",
         description: "",
@@ -124,6 +124,8 @@ const AddMovie = () => {
             
         }
 
+
+
     }
     return (
         <div className='add-product'>
@@ -181,6 +183,7 @@ const AddMovie = () => {
                             <option value="Sci-Fi">Sci-Fi</option>
                             <option value="Romance">Romance</option>
                             <option value="Comady">Comady</option>
+                            <option value="Action">Action</option>
                             <option value="Fantasy">Fantasy</option>
                         </select>
 
@@ -193,6 +196,7 @@ const AddMovie = () => {
                             <option value="Sci-Fi">Sci-Fi</option>
                             <option value="Romance">Romance</option>
                             <option value="Comady">Comady</option>
+                            <option value="Action">Action</option>
                             <option value="Fantasy">Fantasy</option>
                         </select>
                     </div>
