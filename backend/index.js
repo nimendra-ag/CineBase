@@ -106,6 +106,19 @@ app.get('/allmovies', async (req, res)=>{
     res.send(movies)
 })
 
+//creating api for getting a specified number of media from a specified media type
+app.get('/Media', async(req, res) => {
+    const mediaType = req.query.mediaType;
+    const count = parseInt(req.query.count, 10);
+    
+   let media = await MovieModel.find({
+        category: mediaType
+   });
+   let selectedMedia = media.sort((a, b) => 0.5 - Math.random()).slice(0, count);
+   console.log(selectedMedia);
+   res.send(selectedMedia);
+  });
+
 
 //End point fot registering the user
 app.post('/signup', async(req, res)=>{

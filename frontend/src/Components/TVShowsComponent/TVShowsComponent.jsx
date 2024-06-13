@@ -1,7 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Item from '../Item/Item'
+import axios from 'axios';
+
+const mediaType = 'TVShow';
+const count = 2;
+
 
 const TVShowsComponent = () => {
+
+    const [tvshows, setTvshows] = useState([])
+
+    useEffect(() => {
+        axios.get(`http://localhost:4000/Media?mediaType=${mediaType}&count=${count}`)
+            .then((response) => {
+                const movies = response.data;
+                setTvshows(movies);
+                console.log(movies)
+
+            })
+            .catch(error => console.error('Error:', error));
+    }, [])
+
+
+
     return (
         <>
             <div class="row">
@@ -17,12 +38,10 @@ const TVShowsComponent = () => {
                         <div class="row">
                             <div class="col-sm-12 col-lg-12">
                                 <div class="row row-cols-1 row-cols-md-4 g-3">
-                                    <Item />
-                                    <Item />
-                                    <Item />
-                                    <Item />
-                                    <Item />
-                                    <Item />
+
+                                    {tvshows.map((media, i) => {
+                                        return <Item key={i} media={media} name={media.name} cardImage={media.cardImage} rating={media.rating} trailor={media.trailor} />
+                                    })}
                                 </div>
                             </div>
                         </div>
@@ -30,7 +49,7 @@ const TVShowsComponent = () => {
                 </div>
             </div>
             <div class="mt-5 mb-5 text-center">
-              <button type="button" class="btn btn-primary">Primary</button>
+                <button type="button" class="btn btn-primary">Primary</button>
 
             </div>
         </>

@@ -16,6 +16,7 @@ import Movies from './Pages/Movies/Movies';
 import Profile from './Pages/Profile/Profile';
 import MovieDisplay from './Components/MovieDisplay/MovieDisplay';
 import TVShowDisplay from './Components/TVShowDisplay/TVShowDisplay';
+import MediaCategory from './Pages/MediaCategory/MediaCategory';
 function App() {
 
   return (
@@ -30,8 +31,8 @@ function App() {
           <Route path='/reviews' element={<Reviews />} />
           <Route path='/login' element={<Signin/>}/>
           <Route path='/signup' element={<Signup/>}/>
-          <Route path='/tvshows' element={<TVShows/>}/>
-          <Route path='/movies' element={<Movies/>}/>
+          <Route path='/tvshows' element={<MediaCategory category="TVShow"/>}/>
+          <Route path='/movies' element={<MediaCategory category="Movie"/>}/>
           <Route path='/moviedisplay' element={<MovieDisplay/>}/>
           <Route path='/tvshowdisplay' element={<TVShowDisplay/>}/>
           <Route path='/profile' element={<Profile/>}/>
