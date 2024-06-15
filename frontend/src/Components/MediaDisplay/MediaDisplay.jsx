@@ -1,45 +1,47 @@
 import React from 'react'
 
 const MediaDisplay = () => {
+    
     return (
         <>
             <div style={{ marginTop: "90px" }}>
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-5 col-md-12 col-12">
+                        <div className="col-lg-5 col-md-12 col-12" style={{
+                            position: 'relative',
+                            display: 'inline-block'
+                        }}>
                             <img src="https://picsum.photos/800/950" alt="" className="img-fluid" />
+                            <button className="btn btn-primary btn-lg" style={{
+                                position: 'absolute',
+                                left: '13px',
+                                borderRadius:'0px',
+                                padding: '0px'
+                            }}><i class="bi bi-bookmark-plus-fill"></i></button>
                         </div>
                         <div className="col-lg-7 col-md-12 col-12 ps-lg-5 mt-md-1">
                             <div style={{ marginBottom: "10px" }}>
-                                <h2 className="text-center">All our PRO level features at<br />your fingertips...</h2>
-                                <p className="text-center" style={{ marginTop: "50px" }}>Welcome to FinWise, your trusted companion on the journey to
-                                    financial mastery. Take
-                                    control of your money, track expenses effortlessly, and make informed decisions. FinWise
-                                    simplifies financial management, ensuring your path to prosperity is clear, guided, and
-                                    stress-free.</p>
+                                <h2 className="text-start display-4" style={{ fontWeight: '900px' }}>One Day</h2>
+                                <h6>2011 . <span className='border rounded p-1' style={{ backgroundColor: '' }}>Romace</span> <span className='border rounded p-1' style={{ backgroundColor: '', marginLeft: '2px' }}>Drama</span></h6>
+                                <p className="text-start lead" style={{ marginTop: "20px" }}>After spending the night together on the eve of their college graduation,
+                                    Dexter and Emma are shown each year on the same date to see where they are in their lives. They are sometimes together, and sometimes not.
+                                </p>
 
                             </div>
-                            <div className="container text-center" style={{ marginTop: "50px" }}>
+                            <div className="container" style={{ marginTop: "10px" }}>
                                 <div className="row">
-                                    <div className="col-lg-4">
-                                        <img src="img/icon-1.png" alt="" />
-                                        <p className="text-center">Find an extra $395
-                                            hiding in plain sight
-                                        </p>
-                                    </div>
-                                    <div className="col-lg-4">
-                                        <img src="img/icon-2.png" alt="" />
-                                        <p className="text-center">Find an extra $395
-                                            hiding in plain sight
-                                        </p>
-                                    </div>
-                                    <div className="col-lg-4">
-                                        <img src="img/icon-3.png" alt="" />
-                                        <p className="text-center">Find an extra $395
-                                            hiding in plain sight
-                                        </p>
+                                    <div class="">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">iMDB Rating: 7.0</li>
+                                            <li class="list-group-item">Director: Lone Scherfig</li>
+                                            <li class="list-group-item">Stars: Anne Hathaway, Jim Sturgess</li>
+
+                                        </ul>
                                     </div>
                                 </div>
+                            </div>
+                            <div className="container text-start" style={{ marginTop: "30px" }}>
+                                <iframe width="320" height="240" src="https://www.youtube.com/embed/t0Q2otsqC4I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>

@@ -38,7 +38,6 @@ const TVShowsComponent = () => {
                         <div class="row">
                             <div class="col-sm-12 col-lg-12">
                                 <div class="row row-cols-1 row-cols-md-4 g-3">
-
                                     {popularMovies.map((media, i) => {
                                         return <Item key={i} media={media} name={media.name} cardImage={media.cardImage} rating={media.rating} trailor={media.trailor} />
                                     })}
@@ -50,7 +49,6 @@ const TVShowsComponent = () => {
             </div>
             <div class="mt-5 mb-5 text-center">
                 <button type="button" class="btn btn-primary">Primary</button>
-
             </div>
         </>
     )
