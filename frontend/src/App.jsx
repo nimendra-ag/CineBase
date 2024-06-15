@@ -34,8 +34,10 @@ function App() {
           <Route path='/signup' element={<Signup/>}/>
           <Route path='/tvshows' element={<MediaCategory category="TVShow"/>}/>
           <Route path='/movies' element={<MediaCategory category="Movie"/>}/>
-          <Route path='/mediadisplay' element={<MediaDisplay/>}/>
           <Route path='/profile' element={<Profile/>}/>
+          <Route path='/media' element={<MediaDisplay/>}>
+            <Route path=':mediaId' element={<MediaDisplay/>}/>
+          </Route>
 
         </Routes>
       </BrowserRouter>

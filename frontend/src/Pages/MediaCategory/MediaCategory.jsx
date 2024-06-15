@@ -3,19 +3,19 @@ import { MediaContext } from '../../Context/MediaContext'
 import Item from '../../Components/Item/Item';
 
 const MediaCategory = (props) => {
-    const {allMedia} = useContext(MediaContext);
+    const { allMedia } = useContext(MediaContext);
     const categorizedMedia = allMedia.filter(media => media.category === `${props.category}`)
     const randomMedia = categorizedMedia[Math.floor(Math.random() * categorizedMedia.length)];
     console.log(randomMedia)
-  return (
-    <>
-             {
+    return (
+        <>
+            {
                 randomMedia ? <> <div className="hero-image" style={{ backgroundImage: `url(${randomMedia.caroImage})` }}>
                     <div className="hero-text">
 
 
-                        <div style={{marginLeft: '100px'}}>
-                            <h1 style={{ fontSize: "50px"}}>{randomMedia.name}</h1>
+                        <div style={{ marginLeft: '100px' }}>
+                            <h1 style={{ fontSize: "50px" }}>{randomMedia.name}</h1>
                             <h4>{randomMedia.leadActor}, {randomMedia.supportActor}</h4>
                             <h4>{randomMedia.rating} IMDB Score</h4>
                             <h4>{randomMedia.genre1}, {randomMedia.genre2}</h4>
@@ -24,7 +24,7 @@ const MediaCategory = (props) => {
                         </div>
                     </div>
                 </div></> : <></>
-            } 
+            }
 
 
             <div className="container-fluid text-center bg-dark text-lidgt p-3 mt-5">
@@ -41,12 +41,12 @@ const MediaCategory = (props) => {
                         <div className="row">
                             <div className="col-sm-12 col-lg-12">
                                 <div className="row row-cols-1 row-cols-md-4 g-3">
-                                {allMedia.map((media, i)=>{
-                                        if(props.category === media.category){
+                                    {allMedia.map((media, i) => {
+                                        if (props.category === media.category) {
                                             return <Item key={i} media={media} name={media.name} cardImage={media.cardImage} rating={media.rating} trailor={media.trailor} />
 
                                         }
-                                        else{
+                                        else {
                                             return null;
                                         }
                                     })}
@@ -57,7 +57,7 @@ const MediaCategory = (props) => {
                 </div>
             </section>
         </>
-  )
+    )
 }
 
 export default MediaCategory

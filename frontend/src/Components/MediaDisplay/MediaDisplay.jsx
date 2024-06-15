@@ -1,17 +1,25 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { MediaContext } from '../../Context/MediaContext'
+import { useParams } from 'react-router-dom';
 
 const MediaDisplay = () => {
-    
-    return (
-        <>
-            <div style={{ marginTop: "90px" }}>
+    const {allMedia} = useContext(MediaContext);
+    const {mediaId} = useParams();
+    const media = allMedia.find((e) => e.id === Number(mediaId));
+    console.log(`media ID: ${mediaId}`);
+    console.log(media);
+    console.log("This is all media in the Media Display page.")
+    console.log(allMedia);
+  return (
+    <>
+    {media? <><div style={{ marginTop: "90px" }}>
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-5 col-md-12 col-12" style={{
                             position: 'relative',
                             display: 'inline-block'
                         }}>
-                            <img src="https://picsum.photos/800/950" alt="" className="img-fluid" />
+                            <img src={media.displayImage} alt="" className="img-fluid" />
                             <button className="btn btn-primary btn-lg" style={{
                                 position: 'absolute',
                                 left: '13px',
@@ -21,10 +29,10 @@ const MediaDisplay = () => {
                         </div>
                         <div className="col-lg-7 col-md-12 col-12 ps-lg-5 mt-md-1">
                             <div style={{ marginBottom: "10px" }}>
-                                <h2 className="text-start display-4" style={{ fontWeight: '900px' }}>One Day</h2>
-                                <h6>2011 . <span className='border rounded p-1' style={{ backgroundColor: '' }}>Romace</span> <span className='border rounded p-1' style={{ backgroundColor: '', marginLeft: '2px' }}>Drama</span></h6>
-                                <p className="text-start lead" style={{ marginTop: "20px" }}>After spending the night together on the eve of their college graduation,
-                                    Dexter and Emma are shown each year on the same date to see where they are in their lives. They are sometimes together, and sometimes not.
+                                <h2 className="text-start display-4" style={{ fontWeight: '900px' }}>{media.name}</h2>
+                                <h6>2011 . <span className='border rounded p-1' style={{ backgroundColor: '' }}>{media.genre1}</span> <span className='border rounded p-1' style={{ backgroundColor: '', marginLeft: '2px' }}>{media.genre2}</span></h6>
+                                <p className="text-start lead" style={{ marginTop: "20px" }}>
+                                    {media.description}
                                 </p>
 
                             </div>
@@ -32,16 +40,16 @@ const MediaDisplay = () => {
                                 <div className="row">
                                     <div class="">
                                         <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">iMDB Rating: 7.0</li>
-                                            <li class="list-group-item">Director: Lone Scherfig</li>
-                                            <li class="list-group-item">Stars: Anne Hathaway, Jim Sturgess</li>
+                                            <li class="list-group-item">iMDB Rating: {media.rating}</li>
+                                            <li class="list-group-item">Director: {media.director}</li>
+                                            <li class="list-group-item">Stars: {media.leadActor}, {media.supportActor}</li>
 
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                             <div className="container text-start" style={{ marginTop: "30px" }}>
-                                <iframe width="320" height="240" src="https://www.youtube.com/embed/t0Q2otsqC4I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                <iframe width="320" height="240" src={media.trailor} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
                             </div>
                         </div>
                     </div>
@@ -88,9 +96,10 @@ const MediaDisplay = () => {
                     </div>
                 </div>
 
-            </div>
-        </>
-    )
+            </div></> : <>No media found</>}
+
+    </>
+  )
 }
 
 export default MediaDisplay

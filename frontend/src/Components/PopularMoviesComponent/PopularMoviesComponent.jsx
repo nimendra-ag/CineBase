@@ -39,7 +39,7 @@ const TVShowsComponent = () => {
                             <div class="col-sm-12 col-lg-12">
                                 <div class="row row-cols-1 row-cols-md-4 g-3">
                                     {popularMovies.map((media, i) => {
-                                        return <Item key={i} media={media} name={media.name} cardImage={media.cardImage} rating={media.rating} trailor={media.trailor} />
+                                        return <Item key={i} id={media.id} media={media} name={media.name} cardImage={media.cardImage} rating={media.rating} trailor={media.trailor} />
                                     })}
                                 </div>
                             </div>
