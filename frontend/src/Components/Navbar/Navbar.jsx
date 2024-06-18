@@ -50,9 +50,9 @@ const Navbar = () => {
             <div className="dropdown">
               <button className="btn btn-success">Dropdown</button>
               <div className="dropdown-content">
-                <a className="nav-link" href="#">Link 1</a>
-                <a className="nav-link" href="#">Link 2</a>
-                <a className="nav-link" href="#">Link 3</a>
+                <a className="nav-link" href="#">Account</a>
+                <a className="nav-link" href="#">Watchlist</a>
+                <a className="nav-link" href="#">Change<br />Password</a>
               </div>
             </div>
 

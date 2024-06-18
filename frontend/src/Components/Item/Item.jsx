@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { MediaContext } from '../../Context/MediaContext';
 
 const Item = (props) => {
+    const { addtoWatchlist } = useContext(MediaContext);
     console.log("This is from the item component")
     console.log(props, props.name, props.id)
     return (
@@ -12,7 +14,7 @@ const Item = (props) => {
                     <div className="card-body">
                         <h5 className="card-title">{props.name}</h5>
                         <p><i className="bi bi-star-fill"></i> {props.rating}</p>
-                        <a href="#" className="btn btn-primary"><i className="bi bi-bookmark-plus"></i> Watchlist</a>
+                        <a href="#" className="btn btn-primary" onClick={()=>{addtoWatchlist(props.id)}} ><i className="bi bi-bookmark-plus"></i> Watchlist</a>
                     </div>
                     <div className="card-footer">
                         <a href={props.trailor} target='_blank' className="btn btn-primary"><i className="bi bi-play"></i> Trailor</a>

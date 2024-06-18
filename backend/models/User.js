@@ -12,9 +12,27 @@ const UserModel = mongoose.model('Users',{
         type: String,
         required: true
     },
-    date:{
+    birthday:{
         type: Date,
         default: Date.now
+    },
+    gender:{
+        type: String,
+        required: false,
+        default: ""
+    },
+    profilePicture:{
+        type: String,
+        required: false,
+        default: ""
+    },
+    country:{
+        type: String,
+        required: false,
+        default: ""
+    },
+    watchlistData:{
+        type:Object
     }
 })
 

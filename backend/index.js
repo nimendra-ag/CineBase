@@ -127,11 +127,16 @@ app.post('/signup', async(req, res)=>{
         return res.status(400).json({success:false, error:"existing user found with the same email address."})
     }
 
+    let watchlist = {};
+    for(let i = 0; i<300; i++){
+        watchlist[i] = false;
+    }
     const user = new UserModel({
         name: req.body.username,
         email: req.body.email,
         password: req.body.password,
-    });
+        watchlistData: watchlist
+    })
 
     await user.save();
 
@@ -175,6 +180,29 @@ app.post('/signup', async(req, res)=>{
 //         res.json(({success:false, error:"Invalid Email"}));
 //     }
 // })
+
+// creating endpoint for user login
+app.post('/login', async (req,res)=>{
+    let user = await UserModel.findOne({email:req.body.email});
+    if(user){
+        const passCompare = req.body.password === user.password;
+        if(passCompare){
+            const data = {
+                user:{
+                    id:user.id
+                }
+            }
+            const token = jwt.sign(data, 'secret_cinebase_user');
+            res.json({success:true, token: token});
+        }
+        else{
+            res.json({success:false, error:"Wrong Password"});
+        }
+    }
+    else{
+        res.json({success:false, error:"Wrong Email ID"});
+    }
+})
 
 
 app.listen(port, (error) => {
