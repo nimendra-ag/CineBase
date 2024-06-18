@@ -38,7 +38,7 @@ const MediaContextProvider = (props)=>{
 
 
     const contextValue = {allMedia, watchlist, addtoWatchlist, removeFromWatchlist};
-    console.log(watchlist)
+    // console.log(watchlist)
 
     return (
         <MediaContext.Provider value={contextValue}>

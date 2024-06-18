@@ -151,36 +151,6 @@ app.post('/signup', async(req, res)=>{
 })
 
 
-// API for signin
-// app.post('/signin', async(req, res)=>{
-//     let user = await UserModel.findOne({email: req.body.email});
-//     console.log(user)
-//     if(user){
-//         console.log("it came here")
-//         const passCompare = req.body.password == user.password;
-//         console.log(passCompare)
-//         if(passCompare){
-//             console.log("it came passcomapre")
-//             const data = {
-//                 user:{
-//                     id:user.id
-//                 }
-//             }
-//             console.log(data)
-//             const token = jwt.sign(data, 'secret_cinebase_user');
-//             res.json({success:true, token:token});
-//             console.log("token assigned: ", token);
-            
-//         }
-//         else{
-//             res.json({success:false, error:"Invalid Password"});
-//         }
-//     }
-//     else{
-//         res.json(({success:false, error:"Invalid Email"}));
-//     }
-// })
-
 // creating endpoint for user login
 app.post('/login', async (req,res)=>{
     let user = await UserModel.findOne({email:req.body.email});

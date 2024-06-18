@@ -17,18 +17,19 @@ const Signup = () => {
         console.log("Signup function executed", formData);
 
         try{
-            const response = await axios.post('http://localhost:3002/signup', formData);
+            const response = await axios.post('http://localhost:4000/signup', formData);
             const responseData = response.data;
             console.log("This is the response data", responseData);
 
             if(responseData.success){
                 localStorage.setItem('auth-token', responseData.token);
+                window.location.replace('/');
             }
             else{
                 alert(responseData.error)
             }
         }catch(err){
-            console.log(err);
+            alert(err);
         }
     }
 
@@ -77,7 +78,7 @@ const Signup = () => {
                                 </p>
                             </div>
                           
-                            <button type="submit" onClick={signup} className="btn btn-outline-primary text-center">Sign Up</button>
+                            <button type="submit" onClick={()=>{signup()}} className="btn btn-outline-primary text-center">Sign Up</button>
                             
                             <p style={{ fontSize: '16px', marginTop: "30px" }}>Already have an account? <Link style={{textDecoration: 'none'}} to='/login'>Signin here</Link></p>
                         </div>
