@@ -18,6 +18,7 @@ import TVShowDisplay from './Components/TVShowDisplay/TVShowDisplay';
 import MediaCategory from './Pages/MediaCategory/MediaCategory';
 import MediaDisplay from './Components/MediaDisplay/MediaDisplay';
 import Media from './Pages/Media/Media';
+import ChangePassword from './Pages/ChangePassword/ChangePassword';
 function App() {
 
   return (
@@ -34,10 +35,10 @@ function App() {
           <Route path='/tvshows' element={<MediaCategory category="TVShow"/>}/>
           <Route path='/movies' element={<MediaCategory category="Movie"/>}/>
           <Route path='/profile' element={<Profile/>}/>
+          <Route path='/changepassword' element={<ChangePassword/>}/>
           <Route path='/media' element={<Media/>}>
             <Route path=':mediaId' element={<Media/>}/>
           </Route>
-
         </Routes>
       </BrowserRouter>
     </>

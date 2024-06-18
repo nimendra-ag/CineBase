@@ -1,12 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Home.css'
-import Item from '../../Components/Item/Item'
 import PopularInThisWeek from '../../Components/PopularInThisWeek/PopularInThisWeek'
 import TVShowsComponent from '../../Components/TVShowsComponent/TVShowsComponent'
 import PopularMoviesComponent from '../../Components/PopularMoviesComponent/PopularMoviesComponent'
-const Home = () => {
-  return (
+import { useNavigate } from 'react-router-dom'
 
+
+const Home = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!localStorage.getItem('auth-token')) {
+      navigate('/login');
+    }
+  }, [navigate]);
+
+  return (
     <>
       <div class="section">
         <div class="container-fluid1">

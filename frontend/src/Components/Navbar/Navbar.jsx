@@ -7,29 +7,7 @@ import 'bootstrap/dist/js/bootstrap.bundle';
 
 const Navbar = () => {
   return (
-    //  <div className="container">
-    //   <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-    //   <a
-    //         href="/"
-    //         className="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none"
-    //       >
-    //           <img src={Logo} alt="" style={{width: '110px', height:'40px'}}/>
-    //       </a>
-
-    //     <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-    //       <li><div href="#" className="nav-link px-2 link-secondary me-3"><Link style={{textDecoration: 'none'}} to='/watchlist'>Watchlist</Link></div></li>
-    //       <li><div href="#" className="nav-link px-2 link-dark"><Link style={{textDecoration: 'none'}} to='/reviews'>Reviews</Link></div></li>
-    //       <li><div href="#" className="nav-link px-2 link-dark"><Link style={{textDecoration: 'none'}} to='/categories'>Categories</Link></div></li>
-    //       <li><div href="#" className="nav-link px-2 link-secondary"><Link style={{textDecoration: 'none'}} to='/account'>Account</Link></div></li>
-    //     </ul>
-
-    //     <div className="col-md-3 text-end">
-    //       <button type="button" className="btn btn-outline-primary me-2" ><Link style={{textDecoration: 'none'}} to='/login'>Login</Link></button>
-    //     </div>
-    //   </header>
-    // </div>
     <header>
-
       <nav className="navbar navbar-expand-lg navbar-dark fixed-top" style={{ backgroundColor: 'rgba(8, 8, 8, 0.7)' }}>
         <div className="container-fluid">
           <a className="navbar-brand" href="/"><img src={Logo} style={{ width: '110px', height: '40px' }} /></a>
@@ -50,13 +28,15 @@ const Navbar = () => {
             <div className="dropdown">
               <button className="btn btn-success">Dropdown</button>
               <div className="dropdown-content">
-                <a className="nav-link" href="#">Account</a>
                 <a className="nav-link" href="#">Watchlist</a>
-                <a className="nav-link" href="#">Change<br />Password</a>
+                <Link to='/profile'><button>Profile</button></Link>
+                <Link to='/watchlist'><button>Watchlist</button></Link>
+                <Link to='/changepassword'><button>Change<br />Password</button></Link>
+                {localStorage.getItem('auth-token')
+                ?<button onClick={()=>{localStorage.removeItem('auth-token');window.location.replace('/login')}}>Logout</button>
+              :<Link to='/login'><button>Login</button></Link>}
               </div>
             </div>
-
-
           </div>
         </div>
       </nav>

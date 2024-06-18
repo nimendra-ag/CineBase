@@ -10,23 +10,23 @@ const PopularInThisWeek = () => {
 
   return (
     <>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="mt-5">
-            <h1 class="text-start">Popular in this week</h1>
+      <div className="row">
+        <div className="col-md-12">
+          <div className="mt-5">
+            <h1 className="text-start">Popular in this week</h1>
           </div>
         </div>
 
 
       </div>
 
-      <div class="row">
-        <div class="col-md-12">
-          <div class="mt-5">
-            <div class="row">
-              <div class="col-sm-12 col-lg-12">
+      <div className="row">
+        <div className="col-md-12">
+          <div className="mt-5">
+            <div className="row">
+              <div className="col-sm-12 col-lg-12">
 
-                <div class="row row-cols-1 row-cols-md-4 g-3">
+                <div className="row row-cols-1 row-cols-md-4 g-3">
 
                   {popularMedia.map((media, i) => {
                     return <Item key={i} id={media.id} media={media} name={media.name} cardImage={media.cardImage} rating={media.rating} trailor={media.trailor} />
