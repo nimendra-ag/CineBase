@@ -36,6 +36,7 @@ const MediaCategory = (props) => {
             </div>
 
             <section>
+                
                 <div className="section">
                     <div className="container p-5" id="services">
                         <div className="row">
@@ -55,6 +56,7 @@ const MediaCategory = (props) => {
                         </div>
                     </div>
                 </div>
+
             </section>
         </>
     )
