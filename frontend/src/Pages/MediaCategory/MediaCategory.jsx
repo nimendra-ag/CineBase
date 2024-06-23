@@ -6,6 +6,7 @@ const MediaCategory = (props) => {
     const { allMedia } = useContext(MediaContext);
     const categorizedMedia = allMedia.filter(media => media.category === `${props.category}`)
     const randomMedia = categorizedMedia[Math.floor(Math.random() * categorizedMedia.length)];
+    const genres = ["Romance", "Adventure"];
     console.log(randomMedia)
     return (
         <>
@@ -26,34 +27,38 @@ const MediaCategory = (props) => {
                 </div></> : <></>
             }
 
-
-            <div className="container-fluid text-center bg-dark text-lidgt p-3 mt-5">
-                {/* <div className="row">
-                    <div className="col-md-12">
-                        <h1><span className="text-danger">100% QUALITY SERVICES</span></h1>
-                    </div>
-                </div> */}
-            </div>
-
             <section>
-                
+
                 <div className="section">
                     <div className="container p-5" id="services">
-                        <div className="row">
-                            <div className="col-sm-12 col-lg-12">
-                                <div className="row row-cols-1 row-cols-md-4 g-3">
-                                    {allMedia.map((media, i) => {
-                                        if (props.category === media.category) {
-                                            return <Item key={i} media={media} name={media.name} cardImage={media.cardImage} rating={media.rating} trailor={media.trailor} />
 
-                                        }
-                                        else {
-                                            return null;
-                                        }
-                                    })}
+                        {genres.map((genre) => {
+                            return (
+                                <div className="col-md-12">
+                                    <div className="mt-5">
+                                        <h1 className="text-start">{genre}</h1>
+                                    </div>
+
+                                    <div className="row">
+                                        <div className="col-sm-12 col-lg-12">
+                                            <div className="row row-cols-1 row-cols-md-4 g-3">
+                                                {categorizedMedia.map((media, i) => {
+                                                    if (genre === media.genre1) {
+                                                        return <Item key={i} media={media} name={media.name} cardImage={media.cardImage} rating={media.rating} trailor={media.trailor} />
+
+                                                    }
+                                                    else {
+                                                        return null;
+                                                    }
+                                                })}
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
+                            )
+                        })
+                        }
+
                     </div>
                 </div>
 

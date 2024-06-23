@@ -1,12 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import Item from '../Item/Item'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const mediaType = 'TVShow';
 const count = 2;
 
 
 const TVShowsComponent = () => {
+
+    const navigate = useNavigate();
+
+    const handleButtonClick = () => {
+        navigate('/tvshows');
+        window.scrollTo(0, 0)
+    };
 
     const [tvshows, setTvshows] = useState([])
 
@@ -49,8 +57,7 @@ const TVShowsComponent = () => {
                 </div>
             </div>
             <div class="mt-5 mb-5 text-center">
-                <button type="button" class="btn btn-danger">See More</button>
-
+                <button type="button" className="btn btn-danger" onClick={handleButtonClick}>See More</button>
             </div>
         </>
     )

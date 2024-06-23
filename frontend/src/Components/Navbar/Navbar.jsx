@@ -22,7 +22,6 @@ const Navbar = () => {
               <li><div className="nav-link px-2 link-secondary nav-item"><Link className="nav-link active" style={{ textDecoration: 'none' }} to='/watchlist'>Watchlist</Link></div></li>
               <li><div className="nav-link px-2 link-secondary nav-item"><Link className="nav-link active"  style={{ textDecoration: 'none' }} to='/movies'>Movies</Link></div></li>
               <li><div className="nav-link px-2 link-secondary nav-item"><Link className="nav-link active" style={{ textDecoration: 'none' }} to='/tvshows'>TV Shows</Link></div></li>
-              {/* <li><div className="nav-link px-2 link-secondary nav-item"><Link className="nav-link active"  style={{ textDecoration: 'none' }} to='/account'>Account</Link></div></li> */}
             </ul>
 
             <div className="dropdown">

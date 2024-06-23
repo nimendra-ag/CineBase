@@ -130,12 +130,8 @@ const Home = () => {
                 </div>
               </div>
             </div>
-
-
             <hr style={{ borderWidth: '4px', color: 'white' }} />
-
             <div className="row" style={{paddingTop:'140px', paddingBottom:'140px'}}>
-
               <div className="col-sm-12 col-lg-8">
                 <div>
                   <h1 className='text-center' style={{ fontSize: '45px' }}>Review Movies</h1>
@@ -143,22 +139,15 @@ const Home = () => {
                   </p>
                 </div>
               </div>
-
               <div className="col-sm-12 col-lg-4">
                 <div>
                   <img src="https://picsum.photos/500/300" className="img-fluid mx-auto d-block" />
                 </div>
               </div>
-
             </div>
             <hr style={{ borderWidth: '4px', color: 'white' }} />
-
-
           </div>
         </div>
-
-
-
       </section>
 
       <section>
