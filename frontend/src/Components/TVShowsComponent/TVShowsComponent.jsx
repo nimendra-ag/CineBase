@@ -49,7 +49,7 @@ const TVShowsComponent = () => {
                 </div>
             </div>
             <div class="mt-5 mb-5 text-center">
-                <button type="button" class="btn btn-primary">Primary</button>
+                <button type="button" class="btn btn-danger">See More</button>
 
             </div>
         </>

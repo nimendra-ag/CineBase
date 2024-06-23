@@ -8,7 +8,7 @@ import 'bootstrap/dist/js/bootstrap.bundle';
 const Navbar = () => {
   return (
     <header>
-      <nav className="navbar navbar-expand-lg navbar-dark fixed-top" style={{ backgroundColor: 'rgba(8, 8, 8, 0.7)' }}>
+      <nav className="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor: 'rgba(8, 8, 8, 0.7)' }}>
         <div className="container-fluid">
           <a className="navbar-brand" href="/"><img src={Logo} style={{ width: '110px', height: '40px' }} /></a>
 
@@ -26,7 +26,7 @@ const Navbar = () => {
             </ul>
 
             <div className="dropdown">
-            <button type="button" className="btn btn-danger" style={{borderRadius: '0' }}>Dropdown</button>
+            <button type="button" className="btn btn-danger">Dropdown</button>
               <div className="dropdown-content">
                 <a className="nav-link" href="#">Watchlist</a>
                 <Link to='/profile'><button>Profile</button></Link>
