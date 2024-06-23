@@ -17,21 +17,21 @@ const Home = () => {
 
   return (
     <>
-      <div class="section">
-        <div class="container-fluid1">
-          <div id="carouselExampleDark" class="carousel slide carousel-fade" data-bs-ride="carousel">
-            <div class="carousel-indicators">
+      <div className="section">
+        <div className="container-fluid1">
+          <div id="carouselExampleDark" className="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div className="carousel-indicators">
               <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0"
-                class="active" aria-current="true" aria-label="Slide 1"></button>
+                className="active" aria-current="true" aria-label="Slide 1"></button>
               <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
                 aria-label="Slide 2"></button>
               <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
                 aria-label="Slide 3"></button>
             </div>
-            <div class="carousel-inner">
-              <div class="carousel-item active" data-bs-interval="3000">
-                <img src="https://picsum.photos/1920/980" class="d-block w-100" alt="..." />
-                <div class="carousel-caption d-none d-md-block text-start">
+            <div className="carousel-inner">
+              <div className="carousel-item active" data-bs-interval="3000">
+                <img src="https://picsum.photos/1920/980" className="d-block w-100" alt="..." />
+                <div className="carousel-caption d-none d-md-block text-start">
                   <div>
                     <h6>New Releases</h6>
                     <h1>Titanic</h1>
@@ -42,13 +42,13 @@ const Home = () => {
                       amet consectetur adipisicing elit. Nostrum in hic earum numquam ipsum
                       impedit vitae facilis natus sed doloribus?
                     </p>
-                    <button type="button" class="btn btn-primary btn-lg">Large button</button>
+                    <button type="button" className="btn btn-primary btn-lg">Large button</button>
                   </div>
                 </div>
               </div>
-              <div class="carousel-item" data-bs-interval="3000">
-                <img src="https://picsum.photos/1920/980?blur" class="d-block w-100" alt="..." />
-                <div class="carousel-caption d-none d-md-block text-start">
+              <div className="carousel-item" data-bs-interval="3000">
+                <img src="https://picsum.photos/1920/980?blur" className="d-block w-100" alt="..." />
+                <div className="carousel-caption d-none d-md-block text-start">
                   <div>
                     <h6>New Releases</h6>
                     <h1>Titanic</h1>
@@ -59,13 +59,13 @@ const Home = () => {
                       amet consectetur adipisicing elit. Nostrum in hic earum numquam ipsum
                       impedit vitae facilis natus sed doloribus?
                     </p>
-                    <button type="button" class="btn btn-primary btn-lg">Large button</button>
+                    <button type="button" className="btn btn-primary btn-lg">Large button</button>
                   </div>
                 </div>
               </div>
-              <div class="carousel-item" data-bs-interval="3000">
-                <img src="https://picsum.photos/1920/980?grayscale" class="d-block w-100" alt="..." />
-                <div class="carousel-caption d-none d-md-block text-start">
+              <div className="carousel-item" data-bs-interval="3000">
+                <img src="https://picsum.photos/1920/980?grayscale" className="d-block w-100" alt="..." />
+                <div className="carousel-caption d-none d-md-block text-start">
                   <div>
                     <h6>New Releases</h6>
                     <h1>Titanic</h1>
@@ -76,100 +76,111 @@ const Home = () => {
                       amet consectetur adipisicing elit. Nostrum in hic earum numquam ipsum
                       impedit vitae facilis natus sed doloribus?
                     </p>
-                    <button type="button" class="btn btn-primary btn-lg">Large button</button>
+                    <button type="button" className="btn btn-primary btn-lg">Large button</button>
                   </div>
                 </div>
               </div>
             </div>
           </div >
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+          <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
             data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Previous</span>
           </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+          <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
             data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Next</span>
           </button>
         </div >
       </div >
 
       <section>
 
-        <div class="section">
-          <div class="container p-5" id="about">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="mt-5 text-center">
-                  <h1>Welcome to <span class="text-danger">"Company"</span></h1>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus necessitatibus
-                    reiciendis,
-                    quibusdam laborum porro delectus ipsam nisi distinctio, impedit temporibus minima
-                    ullam, fugiat ut vero
-                    accusantium voluptas dolores quam. Eaque!
+        <div className="section">
+          <div className="container p-5" id="about">
+            <div className="row pb-5">
+              <div className="col-md-12">
+                <div className="mt-5 text-center">
+                  <h1 style={{ fontSize: '60px' }}>Enjoy on your TV</h1>
+                  <p className="h4 pt-4">
+                    Get detailed information about your favorite movies right on your TV.
+                    Explore cast, crew, synopses, and reviews with ease...
                   </p>
-                  <hr />
+
                 </div>
               </div>
             </div>
 
-            <div class="row">
+            <hr style={{ borderWidth: '4px', color: 'white' }} />
 
-              <div class="col-sm-12 col-lg-4">
-                <div class="bg-light p-2">
-                  <img src="https://picsum.photos/500/300" class="img-fluid mx-auto d-block" />
+            <div className="row" style={{paddingTop:'140px', paddingBottom:'140px'}}>
+
+              <div className="col-sm-12 col-lg-4">
+                <div>
+                  <img src="https://picsum.photos/500/300" className="img-fluid mx-auto d-block" />
                 </div>
               </div>
 
-              <div class="col-sm-12 col-lg-8">
-                <div class="bg-light p-2">
-                  <h4>About Us</h4>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae dolorum unde
-                    exercitationem, blanditiis minus dolore explicabo reprehenderit suscipit harum iste
-                    eius architecto tempora quam quae id. Ipsa ratione quos officia.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae dolorum unde
-                    exercitationem, blanditiis minus dolore explicabo reprehenderit suscipit harum iste
-                    eius architecto tempora quam quae id. Ipsa ratione quos officia.
+              <div className="col-sm-12 col-lg-8">
+                <div>
+                  <h1 className='text-center' style={{ fontSize: '45px' }}>Save to Watchlist</h1>
+                  <p className="h4 pt-2 text-center">Easily save your favorite movies to your watchlist for quick access later. Keep track of what you want to watch next with just a click.
                   </p>
                 </div>
               </div>
             </div>
+
+
+            <hr style={{ borderWidth: '4px', color: 'white' }} />
+
+            <div className="row" style={{paddingTop:'140px', paddingBottom:'140px'}}>
+
+              <div className="col-sm-12 col-lg-8">
+                <div>
+                  <h1 className='text-center' style={{ fontSize: '45px' }}>Review Movies</h1>
+                  <p className="h4 pt-2 text-center">Share your thoughts and opinions by reviewing movies. Rate your favorites and provide feedback to help other users discover new films.
+                  </p>
+                </div>
+              </div>
+
+              <div className="col-sm-12 col-lg-4">
+                <div>
+                  <img src="https://picsum.photos/500/300" className="img-fluid mx-auto d-block" />
+                </div>
+              </div>
+
+            </div>
+            <hr style={{ borderWidth: '4px', color: 'white' }} />
+
+
           </div>
         </div>
 
-        <div class="container-fluid text-center bg-dark text-lidgt p-3">
 
-          <div class="row">
-            <div class="col-md-12">
-              <h1><span class="text-danger">100% QUALITY SERVICES</span></h1>
-            </div>
+
+      </section>
+
+      <section>
+
+        <div className="section">
+          <div className="container p-2" id="services">
+            <PopularInThisWeek />
+            <TVShowsComponent />
+            <PopularMoviesComponent />
           </div>
-
         </div>
 
       </section>
 
       <section>
 
-        <div class="section">
-          <div class="container p-5" id="services">
-            <PopularInThisWeek/>
-            <TVShowsComponent/>
-            <PopularMoviesComponent/> 
-          </div>
-        </div>
-
-      </section>
-
-      <section>
-
-        <div class="section text-white"
+        <div className="section text-white"
           style={{ backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.827), rgba(0, 0, 0, 0.8)), url(https://picsum.photos/1920/1080)' }}>
-          <div class="container p-5" id="partners">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="mt-3 mb-3 text-center">
+          <div className="container p-5" id="partners">
+            <div className="row">
+              <div className="col-md-12">
+                <div className="mt-3 mb-3 text-center">
                   <h1 style={{ marginBottom: "50px" }}>User Feedback: Shaping Success Stories</h1>
                   <p>Discover the impact of FinWisse courses through the eyes of our users. Their stories speak volumes about the transformative power of our educational offerings.
                     From newfound financial confidence to practical application in real-life scenarios, our users' feedback is a testament to the effectiveness of our courses.
@@ -177,12 +188,12 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <div class="row" style={{ marginTop: "50px" }}>
-              <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-                <div class="wallstyle">
+            <div className="row" style={{ marginTop: "50px" }}>
+              <div className="col-12 col-sm-6 col-md-4 col-lg-2">
+                <div className="wallstyle">
                   <h3>Pattric McMilan</h3>
                   <p>From Australia</p>
-                  <img src="https://picsum.photos/500/300" class="img-fluid mx-auto d-block" style={{ marginBottom: "20px" }} />
+                  <img src="https://picsum.photos/500/300" className="img-fluid mx-auto d-block" style={{ marginBottom: "20px" }} />
                   <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam ex, molestias optio
                     dolore
                     illum
@@ -193,11 +204,11 @@ const Home = () => {
                 </div>
               </div>
 
-              <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-                <div class="wallstyle">
+              <div className="col-12 col-sm-6 col-md-4 col-lg-2">
+                <div className="wallstyle">
                   <h3>Phillip Jane</h3>
                   <p>From USA</p>
-                  <img src="https://picsum.photos/500/300" class="img-fluid mx-auto d-block" style={{ marginBottom: "20px" }} />
+                  <img src="https://picsum.photos/500/300" className="img-fluid mx-auto d-block" style={{ marginBottom: "20px" }} />
                   <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam ex, molestias optio
                     dolore
                     illum
@@ -208,11 +219,11 @@ const Home = () => {
                 </div>
               </div>
 
-              <div class="col-12  col-sm-6 col-md-4 col-lg-2">
-                <div class="wallstyle">
+              <div className="col-12  col-sm-6 col-md-4 col-lg-2">
+                <div className="wallstyle">
                   <h3>Harry Kane</h3>
                   <p>From UK</p>
-                  <img src="https://picsum.photos/500/300" class="img-fluid mx-auto d-block" style={{ marginBottom: "20px" }} />
+                  <img src="https://picsum.photos/500/300" className="img-fluid mx-auto d-block" style={{ marginBottom: "20px" }} />
                   <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam ex, molestias optio
                     dolore
                     illum
@@ -223,11 +234,11 @@ const Home = () => {
                 </div>
               </div>
 
-              <div class="col-12  col-sm-6 col-md-4 col-lg-2">
-                <div class="wallstyle">
+              <div className="col-12  col-sm-6 col-md-4 col-lg-2">
+                <div className="wallstyle">
                   <h3>Gaurav Datt</h3>
                   <p>From India</p>
-                  <img src="https://picsum.photos/500/300" class="img-fluid mx-auto d-block" style={{ marginBottom: "20px" }} />
+                  <img src="https://picsum.photos/500/300" className="img-fluid mx-auto d-block" style={{ marginBottom: "20px" }} />
                   <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam ex, molestias optio
                     dolore
                     illum
@@ -238,11 +249,11 @@ const Home = () => {
                 </div>
               </div>
 
-              <div class="col-12  col-sm-6 col-md-4 col-lg-2">
-                <div class="wallstyle">
+              <div className="col-12  col-sm-6 col-md-4 col-lg-2">
+                <div className="wallstyle">
                   <h3>Cheon Lin Chin</h3>
                   <p>From China</p>
-                  <img src="https://picsum.photos/500/300" class="img-fluid mx-auto d-block" style={{ marginBottom: "20px" }} />
+                  <img src="https://picsum.photos/500/300" className="img-fluid mx-auto d-block" style={{ marginBottom: "20px" }} />
                   <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam ex, molestias optio
                     dolore
                     illum
@@ -253,11 +264,11 @@ const Home = () => {
                 </div>
               </div>
 
-              <div class="col-12  col-sm-6 col-md-4 col-lg-2">
-                <div class="wallstyle">
+              <div className="col-12  col-sm-6 col-md-4 col-lg-2">
+                <div className="wallstyle">
                   <h3>Mustaf Kaif</h3>
                   <p>From UAE</p>
-                  <img src="https://picsum.photos/500/300" class="img-fluid mx-auto d-block" style={{ marginBottom: "20px" }} />
+                  <img src="https://picsum.photos/500/300" className="img-fluid mx-auto d-block" style={{ marginBottom: "20px" }} />
                   <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam ex, molestias optio
                     dolore
                     illum
@@ -276,60 +287,60 @@ const Home = () => {
 
       <section>
 
-        <div class="section" style={{ marginBottom: "30px" }}>
-          <div class="container p-5" id="contact">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="mt-5 text-center">
+        <div className="section" style={{ marginBottom: "30px" }}>
+          <div className="container p-5" id="contact">
+            <div className="row">
+              <div className="col-md-12">
+                <div className="mt-5 text-center">
                   <h1>Feel free to contact us...</h1>
                   <br />
                   <hr />
                 </div>
               </div>
             </div>
-            <div class="row">
+            <div className="row">
 
-              <div class="col-sm-6">
-                <div class="">
+              <div className="col-sm-6">
+                <div className="">
 
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><i class="bi bi-whatsapp"></i> &nbsp;+94 112 222 333</li>
-                    <li class="list-group-item"><i class="bi bi-telegram"></i> &nbsp;+94 777 888 999</li>
-                    <li class="list-group-item"><i class="bi bi-skype"></i>&nbsp; +94 777 888 999</li>
-                    <li class="list-group-item"><i class="bi bi-telephone-fill"></i>&nbsp; +94 777 888 999</li>
-                    <li class="list-group-item"><i class="bi bi-envelope"></i> &nbsp;info@finwise.com</li>
+                  <ul className="list-group list-group-flush">
+                    <li className="list-group-item"><i className="bi bi-whatsapp"></i> &nbsp;+94 112 222 333</li>
+                    <li className="list-group-item"><i className="bi bi-telegram"></i> &nbsp;+94 777 888 999</li>
+                    <li className="list-group-item"><i className="bi bi-skype"></i>&nbsp; +94 777 888 999</li>
+                    <li className="list-group-item"><i className="bi bi-telephone-fill"></i>&nbsp; +94 777 888 999</li>
+                    <li className="list-group-item"><i className="bi bi-envelope"></i> &nbsp;info@finwise.com</li>
 
                   </ul>
 
                 </div>
 
-                <div class="overlay-container">
+                <div className="overlay-container">
                   <img src="images/qr.jpg" alt="" />
                 </div>
 
               </div>
-              <div class="col-sm-6">
-                <div class="">
+              <div className="col-sm-6">
+                <div className="">
                   <form role="form" id="footer-form" action="mail-it.php" method="post">
-                    <div class="form-group mb-3">
-                      <label class="sr-only" for="name2">Name</label>
-                      <input type="text" class="form-control" id="name2" placeholder="Name"
+                    <div className="form-group mb-3">
+                      <label className="sr-only" for="name2">Name</label>
+                      <input type="text" className="form-control" id="name2" placeholder="Name"
                         name="name2" required />
 
                     </div>
-                    <div class="form-group mb-3">
-                      <label class="sr-only" for="email2">Email address</label>
-                      <input type="email" class="form-control" id="email2" placeholder="Enter email"
+                    <div className="form-group mb-3">
+                      <label className="sr-only" for="email2">Email address</label>
+                      <input type="email" className="form-control" id="email2" placeholder="Enter email"
                         name="email2" required />
 
                     </div>
-                    <div class="form-group mb-3">
-                      <label class="sr-only" for="message2">Message</label>
-                      <textarea class="form-control" rows="5" id="message2" placeholder="Message"
+                    <div className="form-group mb-3">
+                      <label className="sr-only" for="message2">Message</label>
+                      <textarea className="form-control" rows="5" id="message2" placeholder="Message"
                         name="message2" required></textarea>
 
                     </div>
-                    <input type="submit" value="Send" class="btn btn-primary" />
+                    <input type="submit" value="Send" className="btn btn-primary" />
                   </form>
                 </div>
               </div>
@@ -341,61 +352,61 @@ const Home = () => {
       <hr />
 
       <div>
-        <div class="container">
-          <footer class="py-5">
-            <div class="row">
-              <div class="col-6 col-md-2 mb-1">
+        <div className="container">
+          <footer className="py-5">
+            <div className="row">
+              <div className="col-6 col-md-2 mb-1">
                 <h5>Section</h5>
-                <ul class="nav flex-column">
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+                <ul className="nav flex-column">
+                  <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-body-secondary">Home</a></li>
+                  <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-body-secondary">Features</a></li>
+                  <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-body-secondary">Pricing</a></li>
+                  <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-body-secondary">FAQs</a></li>
+                  <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-body-secondary">About</a></li>
                 </ul>
               </div>
 
-              <div class="col-6 col-md-2 mb-3">
+              <div className="col-6 col-md-2 mb-3">
                 <h5>Section</h5>
-                <ul class="nav flex-column">
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+                <ul className="nav flex-column">
+                  <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-body-secondary">Home</a></li>
+                  <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-body-secondary">Features</a></li>
+                  <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-body-secondary">Pricing</a></li>
+                  <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-body-secondary">FAQs</a></li>
+                  <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-body-secondary">About</a></li>
                 </ul>
               </div>
 
-              <div class="col-6 col-md-2 mb-3">
+              <div className="col-6 col-md-2 mb-3">
                 <h5>Section</h5>
-                <ul class="nav flex-column">
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+                <ul className="nav flex-column">
+                  <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-body-secondary">Home</a></li>
+                  <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-body-secondary">Features</a></li>
+                  <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-body-secondary">Pricing</a></li>
+                  <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-body-secondary">FAQs</a></li>
+                  <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-body-secondary">About</a></li>
                 </ul>
               </div>
 
-              <div class="col-md-5 offset-md-1 mb-3">
+              <div className="col-md-5 offset-md-1 mb-3">
                 <form>
                   <h5>Subscribe to our newsletter</h5>
                   <p>Monthly digest of what's new and exciting from us.</p>
-                  <div class="d-flex flex-column flex-sm-row w-100 gap-2">
-                    <label for="newsletter1" class="visually-hidden">Email address</label>
-                    <input id="newsletter1" type="text" class="form-control" placeholder="Email address" />
-                    <button class="btn btn-primary" type="button">Subscribe</button>
+                  <div className="d-flex flex-column flex-sm-row w-100 gap-2">
+                    <label for="newsletter1" className="visually-hidden">Email address</label>
+                    <input id="newsletter1" type="text" className="form-control" placeholder="Email address" />
+                    <button className="btn btn-primary" type="button">Subscribe</button>
                   </div>
                 </form>
               </div>
             </div>
 
-            <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+            <div className="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
               <p>&copy; 2024 Company, Inc. All rights reserved.</p>
-              <ul class="list-unstyled d-flex">
-                <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter" /></svg></a></li>
-                <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram" /></svg></a></li>
-                <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook" /></svg></a></li>
+              <ul className="list-unstyled d-flex">
+                <li className="ms-3"><a className="link-body-emphasis" href="#"><svg className="bi" width="24" height="24"><use xlink:href="#twitter" /></svg></a></li>
+                <li className="ms-3"><a className="link-body-emphasis" href="#"><svg className="bi" width="24" height="24"><use xlink:href="#instagram" /></svg></a></li>
+                <li className="ms-3"><a className="link-body-emphasis" href="#"><svg className="bi" width="24" height="24"><use xlink:href="#facebook" /></svg></a></li>
               </ul>
             </div>
           </footer>

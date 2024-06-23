@@ -214,7 +214,7 @@ const AddMovie = () => {
                         <p>Carousel</p>
                     </div>
 
-                     <div className="addproduct-itemfield">
+                    <div className="addproduct-itemfield">
                         <label htmlFor="card-file-input">
                             <img src={cardImage ? URL.createObjectURL(cardImage) : upload_area} className='addproduct-thumbnail-img' alt="" />
                         </label>
@@ -222,7 +222,7 @@ const AddMovie = () => {
                         <p>Card</p>
                     </div> 
 
-                     <div className="addproduct-itemfield">
+                    <div className="addproduct-itemfield">
                         <label htmlFor="display-file-input">
                             <img src={displayImage ? URL.createObjectURL(displayImage) : upload_area} className='addproduct-thumbnail-img' alt="" />
                         </label>

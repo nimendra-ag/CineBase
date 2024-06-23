@@ -26,7 +26,7 @@ const Navbar = () => {
             </ul>
 
             <div className="dropdown">
-              <button className="btn btn-success">Dropdown</button>
+            <button type="button" className="btn btn-danger" style={{borderRadius: '0' }}>Dropdown</button>
               <div className="dropdown-content">
                 <a className="nav-link" href="#">Watchlist</a>
                 <Link to='/profile'><button>Profile</button></Link>
