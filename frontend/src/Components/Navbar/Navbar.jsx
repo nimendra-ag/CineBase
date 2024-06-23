@@ -20,9 +20,9 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarScroll">
             <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style={{ '--bs-scroll-height': '100px' }}>
               <li><div className="nav-link px-2 link-secondary nav-item"><Link className="nav-link active" style={{ textDecoration: 'none' }} to='/watchlist'>Watchlist</Link></div></li>
-              <li><div className="nav-link px-2 link-dark nav-item "><Link className="nav-link active"  style={{ textDecoration: 'none' }} to='/categories'>Categories</Link></div></li>
-              <li><div className="nav-link px-2 link-secondary nav-item"><Link className="nav-link active" style={{ textDecoration: 'none' }} to='/account'>Account</Link></div></li>
-              <li><div className="nav-link px-2 link-secondary nav-item"><Link className="nav-link active"  style={{ textDecoration: 'none' }} to='/account'>Account</Link></div></li>
+              <li><div className="nav-link px-2 link-secondary nav-item"><Link className="nav-link active"  style={{ textDecoration: 'none' }} to='/movies'>Movies</Link></div></li>
+              <li><div className="nav-link px-2 link-secondary nav-item"><Link className="nav-link active" style={{ textDecoration: 'none' }} to='/tvshows'>TV Shows</Link></div></li>
+              {/* <li><div className="nav-link px-2 link-secondary nav-item"><Link className="nav-link active"  style={{ textDecoration: 'none' }} to='/account'>Account</Link></div></li> */}
             </ul>
 
             <div className="dropdown">
