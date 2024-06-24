@@ -3,6 +3,6 @@ body {
     color: white; /* Optional: to ensure the text is visible against the black background */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: "Roboto", sans-serif;
+    font-family: "Lato";
   }
   
