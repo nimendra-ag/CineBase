@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 
 const MediaDisplay = (props) => {
 
+    window.scrollTo(0, 0)
     const { media } = props;
     const { addtoWatchlist } = useContext(MediaContext);
     return (
