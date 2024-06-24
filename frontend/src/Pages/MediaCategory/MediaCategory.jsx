@@ -44,7 +44,7 @@ const MediaCategory = (props) => {
                                             <div className="row row-cols-1 row-cols-md-4 g-3">
                                                 {categorizedMedia.map((media, i) => {
                                                     if (genre === media.genre1) {
-                                                        return <Item key={i} media={media} name={media.name} cardImage={media.cardImage} rating={media.rating} trailor={media.trailor} />
+                                                        return <Item key={i} media={media} id={media.id} name={media.name} cardImage={media.cardImage} rating={media.rating} trailor={media.trailor} />
 
                                                     }
                                                     else {
