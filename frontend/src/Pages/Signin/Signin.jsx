@@ -39,22 +39,22 @@ const Signin = () => {
     return (
         <div>
 
-            <div className="form-signin" style={{marginTop:'100px'}}>
-                    <img className="mb-4" style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto' }} src={Logo} alt="" width="72" height="57" />
-                    <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
+            <div className="form-signin" style={{marginTop:'100px', backgroundColor:'#141414', borderRadius:'10px'}}>
+                    <h1 className="h3 mb-3 fw-normal">Sign in</h1>
 
-                    <div className="form-floating">
-                        <input type="email" name='email' value={formData.email} onChange={changeHandler} className="form-control" id="floatingInput" placeholder="name@example.com" />
+                    <div className="form-floating mb-3">
+                        <input type="email" name='email' value={formData.email} onChange={changeHandler} className="form-control" id="floatingInput" style={{borderRadius:'5px'}}/>
                         <label htmlFor="floatingInput">Email address</label>
                     </div>
 
-                    <div className="form-floating">
-                        <input type="password" name='password' value={formData.password} onChange={changeHandler} className="form-control" id="floatingPassword" placeholder="Password" />
+                    <div className="form-floating mb-3">
+                        <input type="password" name='password' value={formData.password} onChange={changeHandler} className="form-control" id="floatingPassword" style={{borderRadius:'5px'}}/>
                         <label htmlFor="floatingPassword">Password</label>
                     </div>
 
-                    <button className="w-100 btn btn-lg btn-primary" type="submit" onClick={()=>{login()}}>Sign in</button>
-                    <p className="mt-5 mb-3 text-muted">You Don't have an account ? <Link style={{ textDecoration: 'none' }} to='/signup'>Signup here</Link></p>
+
+                    <button className="w-100 btn btn-danger" type="submit" onClick={()=>{login()}}>Sign in</button>
+                    <p className="mt-5 mb-3 text-white-50">New to CineBase?&nbsp;&nbsp;<Link style={{ textDecoration: 'none', color:'white'}} to='/signup'>Signup Now</Link></p>
             </div>
         </div>
     )
