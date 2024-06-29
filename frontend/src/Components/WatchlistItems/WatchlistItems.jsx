@@ -9,16 +9,6 @@ const WatchlistItems = () => {
         <div className="row">
           <div className="col-md-12">
             <div className="mt-5">
-              <h1 className="text-start">Popular in this week</h1>
-            </div>
-          </div>
-  
-  
-        </div>
-  
-        <div className="row">
-          <div className="col-md-12">
-            <div className="mt-5">
               <div className="row">
                 <div className="col-sm-12 col-lg-12">
   
