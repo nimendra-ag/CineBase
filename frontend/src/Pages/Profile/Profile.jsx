@@ -7,8 +7,8 @@ const Profile = () => {
                 <div>
                     <img src="https://picsum.photos/200/200" class="mx-auto d-block" style={{ borderRadius: '100px' }} alt="..." />
                 </div>
-                <div className="container" style={{ marginTop: "50px", backgroundColor: '#FEFFD2', padding: '20px', borderRadius: '20px' }}>
-                    <form className="row g-3">
+                <div className="container" style={{ marginTop: "50px", marginBottom:"200px", backgroundColor: '#2C2C2C', padding: '20px', borderRadius: '8px' }}>
+                    <div className="row g-3">
                         <div className="col-md-6">
                             <label for="inputEmail4" className="form-label">Email</label>
                             <input type="email" className="form-control" id="inputEmail4" />
@@ -23,7 +23,7 @@ const Profile = () => {
                         </div>
 
                         <div className="mb-3">
-                            <label for="formFile" class="form-label">Default file input example</label>
+                            <label for="formFile" class="form-label">Update Your Profile Picture</label>
                             <input className="form-control" type="file" id="formFile"/>
                         </div>
 
@@ -51,9 +51,9 @@ const Profile = () => {
                             </div>
                         </div>
                         <div className="col-12">
-                            <button type="submit" className="btn btn-primary">Sign in</button>
+                            <button type="submit" className="btn btn-danger">Update Profile</button>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </>

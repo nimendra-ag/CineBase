@@ -114,7 +114,7 @@ app.get('/Media', async(req, res) => {
    let media = await MovieModel.find({
         category: mediaType
    });
-   let selectedMedia = media.sort((a, b) => 0.5 - Math.random()).slice(0, count);
+   let selectedMedia = media.sort((a, b) => 0.5 - Math.random()).slice(0, count); //shuffling
    console.log(selectedMedia);
    res.send(selectedMedia);
   });
