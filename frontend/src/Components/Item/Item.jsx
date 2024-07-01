@@ -27,7 +27,7 @@ const Item = (props) => {
                                 border: '0px',
                                 backgroundColor: isHovered ? 'rgb(44, 44, 44)' : 'inherit',
                                 transition: 'color 0.3s',
-                                textDecoration: 'none' /* Remove underline */
+                                textDecoration: 'none' 
                             }}
                             onMouseEnter={() => setIsHovered(true)}
                             onMouseLeave={() => setIsHovered(false)}

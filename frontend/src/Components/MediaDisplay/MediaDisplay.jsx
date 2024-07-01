@@ -34,9 +34,9 @@ const MediaDisplay = (props) => {
                                     style={{
                                         position: "absolute",
                                         left: "12px",
-                                        top: "0px", /* Adjust top position for better alignment */
-                                        borderTopLeftRadius: "8px", /* Rounded top left corner */
-                                        borderTopRightRadius: "5px", /* Rounded top right corner */
+                                        top: "0px", 
+                                        borderTopLeftRadius: "8px", 
+                                        borderTopRightRadius: "5px", 
                                         borderBottomRightRadius: "5px", /* Rounded bottom right corner */
                                         borderBottomLeftRadius: "5px", /* Rounded bottom left corner */
                                         padding: "0px 0px", /* Keep padding for better button appearance */
