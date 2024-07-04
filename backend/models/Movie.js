@@ -86,6 +86,11 @@ const MovieModel = mongoose.model('Movies',{
         required: true
     },
 
+    category:{
+        type: String,
+        required: true
+    },
+    
     reviews: {
         type: [reviewSchema], // Array of review objects
         required: false,

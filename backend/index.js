@@ -75,6 +75,7 @@ app.post('/addmovie', async (req, res)=>{
         leadActor: req.body.leadActor,
         supportActor: req.body.supportActor,
         description: req.body.description,
+        category: req.body.category,
     });
 
     console.log(movie);

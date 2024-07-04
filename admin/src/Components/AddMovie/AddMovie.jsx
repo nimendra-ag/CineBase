@@ -23,22 +23,23 @@ const AddMovie = () => {
         leadActor: "",
         supportActor: "",
         description: "",
+        category: "TVShow",
     })
 
     const displayImageHandler = (e) => {
-        
+
         setDisplayImage(e.target.files[0]);
         console.log(`Image added, ${displayImage}`);
     }
 
     const cardImageHandler = (e) => {
-        
+
         setCardImage(e.target.files[0]);
         console.log(`Image added, ${cardImage}`);
     }
 
     const caroImageHandler = (e) => {
-       
+
         setCaroImage(e.target.files[0]);
         console.log(`Image added, ${caroImage}`);
     }
@@ -47,7 +48,7 @@ const AddMovie = () => {
         setMovieDetails({ ...movieDetails, [e.target.name]: e.target.value })
     }
 
-    const Add_Movie = async () =>{
+    const Add_Movie = async () => {
         console.log(movieDetails);
         let responseDataCaro;
         let responseDataCard;
@@ -97,7 +98,7 @@ const AddMovie = () => {
             console.error('Error uploading images:', error);
         }
 
-        if(responseDataCaro.success && responseDataCard.success && responseDataDisplay.success){
+        if (responseDataCaro.success && responseDataCard.success && responseDataDisplay.success) {
             movie.caroImage = responseDataCaro.image_url;
             movie.cardImage = responseDataCard.image_url;
             movie.displayImage = responseDataDisplay.image_url;
@@ -105,23 +106,23 @@ const AddMovie = () => {
             console.log(movie);
 
             try {
-            const response = await axios.post('http://localhost:4000/addmovie', movieDetails, {
-                headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json',
-                },
-            });
+                const response = await axios.post('http://localhost:4000/addmovie', movieDetails, {
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                });
 
-            if (response.data.success) {
-                alert("Movie Added");
-            } else {
+                if (response.data.success) {
+                    alert("Movie Added");
+                } else {
+                    alert("Failed to add Movie");
+                }
+            } catch (error) {
+                console.error('Error adding movie:', error.response ? error.response.data : error.message);
                 alert("Failed to add Movie");
             }
-        } catch (error) {
-            console.error('Error adding movie:', error.response ? error.response.data : error.message);
-            alert("Failed to add Movie");
-        }
-            
+
         }
 
 
@@ -176,35 +177,43 @@ const AddMovie = () => {
                 </div>
 
                 <div className="addproduct-itemfield">
-                        <p>Genre 1</p>
-                        <select value={movieDetails.genre1} onChange={changeHandler} name="genre1" className='add-product-selector'>
-                            <option value="Drama">Drama</option>
-                            <option value="Adventure">Adventure</option>
-                            <option value="Sci-Fi">Sci-Fi</option>
-                            <option value="Romance">Romance</option>
-                            <option value="Comady">Comady</option>
-                            <option value="Action">Action</option>
-                            <option value="Fantasy">Fantasy</option>
-                        </select>
+                    <p>Genre 1</p>
+                    <select value={movieDetails.genre1} onChange={changeHandler} name="genre1" className='add-product-selector'>
+                        <option value="Drama">Drama</option>
+                        <option value="Adventure">Adventure</option>
+                        <option value="Sci-Fi">Sci-Fi</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Comady">Comady</option>
+                        <option value="Action">Action</option>
+                        <option value="Fantasy">Fantasy</option>
+                    </select>
 
-                    </div>
-                    <div className="addproduct-itemfield">
-                        <p>Genre 2</p>
-                        <select value={movieDetails.genre2} onChange={changeHandler} name="genre2" className='add-product-selector'>
-                            <option value="Drama">Drama</option>
-                            <option value="Adventure">Adventure</option>
-                            <option value="Sci-Fi">Sci-Fi</option>
-                            <option value="Romance">Romance</option>
-                            <option value="Comady">Comady</option>
-                            <option value="Action">Action</option>
-                            <option value="Fantasy">Fantasy</option>
-                        </select>
-                    </div>
+                </div>
+                <div className="addproduct-itemfield">
+                    <p>Genre 2</p>
+                    <select value={movieDetails.genre2} onChange={changeHandler} name="genre2" className='add-product-selector'>
+                        <option value="Drama">Drama</option>
+                        <option value="Adventure">Adventure</option>
+                        <option value="Sci-Fi">Sci-Fi</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Comady">Comady</option>
+                        <option value="Action">Action</option>
+                        <option value="Fantasy">Fantasy</option>
+                    </select>
+                </div>
+                <div className="addproduct-itemfield">
+                    <p>Category</p>
+                    <select value={movieDetails.category} onChange={changeHandler} name="category" className='add-product-selector'>
+                        <option value="TVShow">TV Show</option>
+                        <option value="Movie">Movie</option>
+                    </select>
+                </div>
+
             </div>
 
             <div className="addproduct-price">
                 <div className="addproduct-price">
-                    
+
 
                     <div className="addproduct-itemfield">
                         <label htmlFor="caro-file-input">
@@ -220,7 +229,7 @@ const AddMovie = () => {
                         </label>
                         <input type="file" onChange={cardImageHandler} name='cardImage' id='card-file-input' hidden />
                         <p>Card</p>
-                    </div> 
+                    </div>
 
                     <div className="addproduct-itemfield">
                         <label htmlFor="display-file-input">
@@ -228,7 +237,7 @@ const AddMovie = () => {
                         </label>
                         <input type="file" onChange={displayImageHandler} name='displayImage' id='display-file-input' hidden />
                         <p>Display</p>
-                    </div> 
+                    </div>
                 </div>
             </div>
 
