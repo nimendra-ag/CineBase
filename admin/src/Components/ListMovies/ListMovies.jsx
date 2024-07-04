@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './ListMovies.css'
 import cross_icon from '../../assets/cross_icon.png'
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
 const ListMovies = () => {
@@ -49,13 +50,15 @@ const ListMovies = () => {
         <hr />
         {allMovies.map((movie, index) => {
           return <>
+          
           <div key={index} className="listproduct-format-main listproduct-format">
-            <img src={movie.cardImage} alt="" className="listproduct-product-icon" />
+          <Link to={`/media/${movie.id}`}><img src={movie.cardImage} alt="" className="listproduct-product-icon" /> </Link>
             <p>{movie.name}</p>
             <p>{movie.releasedYear}</p>
             <p>{movie.rating}</p>
             <img onClick={()=>{remove_movie(movie.id)}} className='listproduct-remove-icon' src={cross_icon} alt="" />
           </div>
+         
           </>
         })}
       </div>

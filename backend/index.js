@@ -48,7 +48,6 @@ app.post('/upload',upload.single('media'), (req, res)=>{       //to upload any i
 
 
 //Creating the endpoint for adding the movie
-
 app.post('/addmovie', async (req, res)=>{
     let movies = await MovieModel.find({});
     let id;
@@ -87,6 +86,27 @@ app.post('/addmovie', async (req, res)=>{
         name:req.body.name,
     })
 })
+
+//Creating API for getting an specific media for updating
+app.get('/media/:MediaId', async (req, res)=>{
+    let media = await MovieModel.find({id:req.params.MediaId})
+    console.log(media);
+    res.json(media)
+})
+
+app.put('/updatemedia/:MediaId', async (req, res)=>{
+    console.log(req.params.MediaId);
+    const updatedData = req.body;
+    await MovieModel.findOneAndUpdate({id:req.params.MediaId},
+        updatedData,
+        { new: true } 
+    );
+    res.json({
+        success: true,
+        name:req.body.name,
+    })
+})
+
 
 //Creating API for deleting a Movie
 app.post('/removemovie', async (req, res)=>{

@@ -124,9 +124,6 @@ const AddMovie = () => {
             }
 
         }
-
-
-
     }
     return (
         <div className='add-product'>
