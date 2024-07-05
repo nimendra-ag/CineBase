@@ -105,7 +105,6 @@ const MediaDisplay = (props) => {
                                         }}
                                     ></div>
                                 </div>
-
                             </div>
                         </div>
                     </div>

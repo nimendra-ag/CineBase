@@ -1,4 +1,5 @@
 import React from 'react'
+import AddReview from '../AddReview/AddReview'
 
 const Reviews = () => {
     return (
@@ -7,6 +8,7 @@ const Reviews = () => {
                 <div className="row">
                     <div className="col-lg-12">
                         <h2 className="text-center" style={{ marginTop: "100px" }}>Reviews By Fans</h2>
+                        <AddReview/>
                     </div>
                 </div>
 
