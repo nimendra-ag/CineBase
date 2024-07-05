@@ -19,7 +19,16 @@ const MediaContextProvider = (props) => {
     const addtoWatchlist = (mediaId) => {
         setWatchlist((prev) => ({ ...prev, [mediaId]: true }))
         if (localStorage.getItem('auth-token')) {
-            axios.post('http://localhost:4000/addtowatchlist', { mediaId }, { headers: { 'Accept': 'application/form-data', 'auth-token': localStorage.getItem('auth-token'), 'Content-Type': 'application/json' } })
+            axios.post('http://localhost:4000/addtowatchlist',
+                { mediaId },
+                {
+                    headers:
+                    {
+                        'Accept': 'application/form-data',
+                        'auth-token': localStorage.getItem('auth-token'),
+                        'Content-Type': 'application/json'
+                    }
+                })
                 .then((response) => {
                     console.log(response.data)
                 })
@@ -54,16 +63,16 @@ const MediaContextProvider = (props) => {
                 console.error("There was an error fetching the data!", error);
             });
 
-            if(localStorage.getItem('auth-token')){
-                axios.post('http://localhost:4000/getwatchlist', {}, {headers: {'Accept': 'application/form-data', 'auth-token': localStorage.getItem('auth-token'), 'Content-Type': 'application/json'}})
-                .then((response)=>{
+        if (localStorage.getItem('auth-token')) {
+            axios.post('http://localhost:4000/getwatchlist', {}, { headers: { 'Accept': 'application/form-data', 'auth-token': localStorage.getItem('auth-token'), 'Content-Type': 'application/json' } })
+                .then((response) => {
                     console.log(response.data);
                     setWatchlist(response.data);
                 })
-                .catch((error)=>{
+                .catch((error) => {
                     console.error("There was an error fetching the data!", error);
                 });
-            }
+        }
     }, []);
 
 

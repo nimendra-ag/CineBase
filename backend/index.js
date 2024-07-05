@@ -213,6 +213,16 @@ const fetchUser = async (req, res, next)=>{
     }
 }
 
+//creating an API for getting a review for a movie
+app.post('/newReview', fetchUser, async(req, res) => {
+    let user = await UserModel.findOne({_id:req.user.id})
+    const userName = user.name;
+    const review = req.body.review;
+    const date  = Date.now();
+    const mediaId = req.query.mediaId;
+    console.log(userName, review, date, mediaId);
+    res.json({success:true, message:"working on it"});
+})
 
 //creating endpoint for adding movies in watchlist
 app.post('/addtowatchlist', fetchUser, async (req, res)=>{

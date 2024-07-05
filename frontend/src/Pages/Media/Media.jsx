@@ -13,7 +13,7 @@ const Media = () => {
   return (
     <>
     <MediaDisplay media={media}/>
-    <Reviews/>
+    <Reviews mediaId={Number(mediaId)}/>
     </>
   )
 }
