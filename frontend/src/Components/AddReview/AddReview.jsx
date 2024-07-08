@@ -64,7 +64,7 @@ const AddReview = (props) => {
                         Close
                     </Button>
                     <Button variant="danger" onClick={handleSubmit}>
-                        Save Changes
+                        Add Review
                     </Button>
                 </Modal.Footer>
             </Modal>

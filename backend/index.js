@@ -220,9 +220,9 @@ app.post('/newReview', fetchUser, async(req, res) => {
     let user = await UserModel.findOne({_id:req.user.id})
     var today = new Date();
     var DD = String(today.getDate()).padStart(2, '0');
-    var MM = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var MM = today.toLocaleString('default', { month: 'long' });
     var YYYY = today.getFullYear();
-    var date = DD.concat("-", MM, "-", YYYY);
+    var date = MM.concat(" ", DD, ", ", YYYY);
 
     let reviews = await ReviewModel.find({});
     let id;
@@ -252,6 +252,14 @@ app.post('/newReview', fetchUser, async(req, res) => {
         review: req.body.review, 
     })
 })
+
+//Creating and endpoint for getting all reviews
+app.get('/allreviews', async (req, res)=>{
+    let reviews = await ReviewModel.find({});
+    console.log("All Reviews Fetched.");
+    res.send(reviews);
+})
+
 
 //creating endpoint for adding movies in watchlist
 app.post('/addtowatchlist', fetchUser, async (req, res)=>{
