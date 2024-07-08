@@ -13,6 +13,8 @@ app.use(cors());
 
 const UserModel = require("./models/User");
 const MovieModel = require("./models/Movie");
+const ReviewModel = require("./models/Review");
+
 mongoose.connect("mongodb://127.0.0.1:27017/CineBase");
 
 
@@ -216,12 +218,39 @@ const fetchUser = async (req, res, next)=>{
 //creating an API for getting a review for a movie
 app.post('/newReview', fetchUser, async(req, res) => {
     let user = await UserModel.findOne({_id:req.user.id})
-    const userName = user.name;
-    const review = req.body.review;
-    const date  = Date.now();
-    const mediaId = req.query.mediaId;
-    console.log(userName, review, date, mediaId);
-    res.json({success:true, message:"working on it"});
+    var today = new Date();
+    var DD = String(today.getDate()).padStart(2, '0');
+    var MM = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var YYYY = today.getFullYear();
+    var date = DD.concat("-", MM, "-", YYYY);
+
+    let reviews = await ReviewModel.find({});
+    let id;
+    if(reviews.length>0){
+        let last_review_array = reviews.slice(-1);
+        let last_review = last_review_array[0];
+        id = last_review.id + 1;
+    }
+    else{
+        id = 1;
+    }
+
+    const review = new ReviewModel({
+        id: id,
+        mediaId:req.query.mediaId,
+        userName: user.name,
+        userEmail: user.email,
+        reviewText: req.body.review,
+        date: date
+    });
+
+    console.log(review);
+    await review.save();
+    console.log("Review Saved");
+    res.json({
+        success: true,
+        review: req.body.review, 
+    })
 })
 
 //creating endpoint for adding movies in watchlist
