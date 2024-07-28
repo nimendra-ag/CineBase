@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { MediaContext } from '../../Context/MediaContext'
 import Item from '../../Components/Item/Item';
+import './MediaCategory.css'
 
 const MediaCategory = (props) => {
     const { allMedia } = useContext(MediaContext);

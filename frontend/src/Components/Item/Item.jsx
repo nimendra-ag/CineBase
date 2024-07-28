@@ -23,7 +23,7 @@ const Item = (props) => {
                             target='_blank'
                             className="btn btn-primary"
                             style={{
-                                backgroundColor: 'transparent',
+                                // backgroundColor: 'transparent',
                                 border: '0px',
                                 backgroundColor: isHovered ? 'rgb(44, 44, 44)' : 'inherit',
                                 transition: 'color 0.3s',

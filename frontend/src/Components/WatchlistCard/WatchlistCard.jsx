@@ -18,13 +18,13 @@ const WatchlistCard = (props) => {
 
 
                     <div className="card-footer text-center" style={{ paddingTop: '0px' }}>
-                        <a href="#" className="btn btn-primary" style={{ marginBottom: '10px', backgroundColor: 'rgb(44,44,44)', border: '0px' }} onClick={() => { removeFromWatchlist(props.id) }} ><i class="bi bi-bookmark-check"></i> Watchlist</a>
+                        <a href="#" className="btn btn-primary" style={{ marginBottom: '10px', backgroundColor: 'rgb(44,44,44)', border: '0px' }} onClick={() => { removeFromWatchlist(props.id) }} ><i class="bi bi-bookmark-check"></i> Remove</a>
                         <a
                             href={props.trailor}
                             target='_blank'
                             className="btn btn-primary"
                             style={{
-                                backgroundColor: 'transparent',
+                                // backgroundColor: 'transparent',
                                 border: '0px',
                                 backgroundColor: isHovered ? 'rgb(44, 44, 44)' : 'inherit',
                                 transition: 'color 0.3s',
