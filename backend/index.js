@@ -15,6 +15,7 @@ const UserModel = require("./models/User");
 const MovieModel = require("./models/Movie");
 const ReviewModel = require("./models/Review");
 const FeedbackModel = require("./models/Feedback");
+const NewsletterEmailModel = require("./models/NewsletterEmail");
 
 mongoose.connect("mongodb://127.0.0.1:27017/CineBase");
 
@@ -96,7 +97,7 @@ app.get('/media/:MediaId', async (req, res)=>{
     console.log(media);
     res.json(media)
 })
-
+// to update media
 app.put('/updatemedia/:MediaId', async (req, res)=>{
     console.log(req.params.MediaId);
     const updatedData = req.body;
@@ -129,6 +130,18 @@ app.get('/allmovies', async (req, res)=>{
 
     res.send(movies)
 })
+
+//API to subscribe to newsletter
+app.post('/subscribetonewsletter', async (req, res)=>{
+    const NewsletterEmail = new NewsletterEmailModel({
+        email: req.body.email
+    })
+
+    await NewsletterEmail.save();
+
+    res.json({success:true})
+})
+
 
 //creating api for getting a specified number of media from a specified media type
 app.get('/Media', async(req, res) => {

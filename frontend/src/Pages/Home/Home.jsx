@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import FeedbackForm from '../../Components/FeedBackForm/FeedbackForm'
 import FeedbackItem from '../../Components/FeedbackItem/FeedbackItem'
 import FeedbackSection from '../../Components/FeedbackSeciton/FeedbackSection'
+import SubscribeToNewsletter from '../../Components/SubscribeToNewsletter/SubscribeToNewsletter'
 
 const Home = () => {
   const navigate = useNavigate();
@@ -228,13 +229,7 @@ const Home = () => {
 
               <div className="col-md-5 offset-md-1 mb-3">
 
-                <h5>Subscribe to our newsletter</h5>
-                <p>Monthly digest of what's new and exciting from us.</p>
-                <div className="d-flex flex-column flex-sm-row w-100 gap-2">
-                  <label for="newsletter1" className="visually-hidden">Email address</label>
-                  <input id="newsletter1" type="text" className="form-control" placeholder="Email address" style={{ border: '0' }} />
-                  <button className="btn btn-danger" type="button">Subscribe</button>
-                </div>
+                <SubscribeToNewsletter/>
 
               </div>
             </div>
