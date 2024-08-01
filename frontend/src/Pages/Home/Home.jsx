@@ -4,8 +4,8 @@ import PopularInThisWeek from '../../Components/PopularInThisWeek/PopularInThisW
 import TVShowsComponent from '../../Components/TVShowsComponent/TVShowsComponent'
 import PopularMoviesComponent from '../../Components/PopularMoviesComponent/PopularMoviesComponent'
 import { useNavigate } from 'react-router-dom'
-import FeedbackForm from '../../Components/FeedbackForm/FeedbackForm'
-
+import FeedbackForm from '../../Components/FeedBackForm/FeedbackForm'
+import FeedbackItem from '../../Components/FeedbackItem/FeedbackItem'
 
 const Home = () => {
   const navigate = useNavigate();
@@ -115,7 +115,7 @@ const Home = () => {
 
             <hr style={{ borderWidth: '4px', color: 'white' }} />
 
-            <div className="row" style={{paddingTop:'140px', paddingBottom:'140px'}}>
+            <div className="row" style={{ paddingTop: '140px', paddingBottom: '140px' }}>
 
               <div className="col-sm-12 col-lg-4">
                 <div>
@@ -132,7 +132,7 @@ const Home = () => {
               </div>
             </div>
             <hr style={{ borderWidth: '4px', color: 'white' }} />
-            <div className="row" style={{paddingTop:'140px', paddingBottom:'140px'}}>
+            <div className="row" style={{ paddingTop: '140px', paddingBottom: '140px' }}>
               <div className="col-sm-12 col-lg-8">
                 <div>
                   <h1 className='text-center' style={{ fontSize: '45px' }}>Review Movies</h1>
@@ -179,96 +179,42 @@ const Home = () => {
               </div>
             </div>
             <div className="row" style={{ marginTop: "50px" }}>
-              <div className="col-12 col-sm-6 col-md-4 col-lg-2">
-                <div className="wallstyle">
-                  <h3>Pattric McMilan</h3>
-                  <p>From Australia</p>
-                  <img src="https://picsum.photos/500/300" className="img-fluid mx-auto d-block" style={{ marginBottom: "20px" }} />
-                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam ex, molestias optio
-                    dolore
-                    illum
-                    provident voluptatem eum ipsam vel fuga iste, sed vero magnam neque aut nihil odit
-                    culpa
-                    aliquam.
-                  </p>
-                </div>
-              </div>
-
-              <div className="col-12 col-sm-6 col-md-4 col-lg-2">
-                <div className="wallstyle">
-                  <h3>Phillip Jane</h3>
-                  <p>From USA</p>
-                  <img src="https://picsum.photos/500/300" className="img-fluid mx-auto d-block" style={{ marginBottom: "20px" }} />
-                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam ex, molestias optio
-                    dolore
-                    illum
-                    provident voluptatem eum ipsam vel fuga iste, sed vero magnam neque aut nihil odit
-                    culpa
-                    aliquam.
-                  </p>
-                </div>
-              </div>
-
-              <div className="col-12  col-sm-6 col-md-4 col-lg-2">
-                <div className="wallstyle">
-                  <h3>Harry Kane</h3>
-                  <p>From UK</p>
-                  <img src="https://picsum.photos/500/300" className="img-fluid mx-auto d-block" style={{ marginBottom: "20px" }} />
-                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam ex, molestias optio
-                    dolore
-                    illum
-                    provident voluptatem eum ipsam vel fuga iste, sed vero magnam neque aut nihil odit
-                    culpa
-                    aliquam.
-                  </p>
-                </div>
-              </div>
-
-              <div className="col-12  col-sm-6 col-md-4 col-lg-2">
-                <div className="wallstyle">
-                  <h3>Gaurav Datt</h3>
-                  <p>From India</p>
-                  <img src="https://picsum.photos/500/300" className="img-fluid mx-auto d-block" style={{ marginBottom: "20px" }} />
-                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam ex, molestias optio
-                    dolore
-                    illum
-                    provident voluptatem eum ipsam vel fuga iste, sed vero magnam neque aut nihil odit
-                    culpa
-                    aliquam.
-                  </p>
-                </div>
-              </div>
-
-              <div className="col-12  col-sm-6 col-md-4 col-lg-2">
-                <div className="wallstyle">
-                  <h3>Cheon Lin Chin</h3>
-                  <p>From China</p>
-                  <img src="https://picsum.photos/500/300" className="img-fluid mx-auto d-block" style={{ marginBottom: "20px" }} />
-                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam ex, molestias optio
-                    dolore
-                    illum
-                    provident voluptatem eum ipsam vel fuga iste, sed vero magnam neque aut nihil odit
-                    culpa
-                    aliquam.
-                  </p>
-                </div>
-              </div>
-
-              <div className="col-12  col-sm-6 col-md-4 col-lg-2">
-                <div className="wallstyle">
-                  <h3>Mustaf Kaif</h3>
-                  <p>From UAE</p>
-                  <img src="https://picsum.photos/500/300" className="img-fluid mx-auto d-block" style={{ marginBottom: "20px" }} />
-                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam ex, molestias optio
-                    dolore
-                    illum
-                    provident voluptatem eum ipsam vel fuga iste, sed vero magnam neque aut nihil odit
-                    culpa
-                    aliquam.
-                  </p>
-                </div>
-              </div>
-
+              <FeedbackItem country='australia' name='Alan Border' message='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam ex, molestias optio
+                        dolore
+                        illum
+                        provident voluptatem eum ipsam vel fuga iste, sed vero magnam neque aut nihil odit
+                        culpa
+                        aliquam.'/>
+              <FeedbackItem country='australia' name='Alan Border' message='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam ex, molestias optio
+                        dolore
+                        illum
+                        provident voluptatem eum ipsam vel fuga iste, sed vero magnam neque aut nihil odit
+                        culpa
+                        aliquam.'/>
+              <FeedbackItem country='australia' name='Alan Border' message='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam ex, molestias optio
+                        dolore
+                        illum
+                        provident voluptatem eum ipsam vel fuga iste, sed vero magnam neque aut nihil odit
+                        culpa
+                        aliquam.'/>
+              <FeedbackItem country='australia' name='Alan Border' message='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam ex, molestias optio
+                        dolore
+                        illum
+                        provident voluptatem eum ipsam vel fuga iste, sed vero magnam neque aut nihil odit
+                        culpa
+                        aliquam.'/>
+              <FeedbackItem country='australia' name='Alan Border' message='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam ex, molestias optio
+                        dolore
+                        illum
+                        provident voluptatem eum ipsam vel fuga iste, sed vero magnam neque aut nihil odit
+                        culpa
+                        aliquam.'/>
+              <FeedbackItem country='australia' name='Alan Border' message='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam ex, molestias optio
+                        dolore
+                        illum
+                        provident voluptatem eum ipsam vel fuga iste, sed vero magnam neque aut nihil odit
+                        culpa
+                        aliquam.'/>
             </div>
           </div>
         </div>
@@ -284,12 +230,12 @@ const Home = () => {
                 <div className="mt-5 text-center">
                   <h1>We value your feedback</h1>
                   <br />
-                  <hr style={{ borderWidth: '4px', color: 'white' }} className='pb-4'/>
+                  <hr style={{ borderWidth: '4px', color: 'white' }} className='pb-4' />
                 </div>
               </div>
             </div>
             <div className="row">
-              <FeedbackForm/>
+              <FeedbackForm />
             </div>
           </div>
         </div>
@@ -333,15 +279,15 @@ const Home = () => {
               </div>
 
               <div className="col-md-5 offset-md-1 mb-3">
-                
-                  <h5>Subscribe to our newsletter</h5>
-                  <p>Monthly digest of what's new and exciting from us.</p>
-                  <div className="d-flex flex-column flex-sm-row w-100 gap-2">
-                    <label for="newsletter1" className="visually-hidden">Email address</label>
-                    <input id="newsletter1" type="text" className="form-control" placeholder="Email address" style={{border:'0'}}/>
-                    <button className="btn btn-danger" type="button">Subscribe</button>
-                  </div>
-                
+
+                <h5>Subscribe to our newsletter</h5>
+                <p>Monthly digest of what's new and exciting from us.</p>
+                <div className="d-flex flex-column flex-sm-row w-100 gap-2">
+                  <label for="newsletter1" className="visually-hidden">Email address</label>
+                  <input id="newsletter1" type="text" className="form-control" placeholder="Email address" style={{ border: '0' }} />
+                  <button className="btn btn-danger" type="button">Subscribe</button>
+                </div>
+
               </div>
             </div>
 
