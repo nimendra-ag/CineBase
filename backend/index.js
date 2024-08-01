@@ -14,6 +14,7 @@ app.use(cors());
 const UserModel = require("./models/User");
 const MovieModel = require("./models/Movie");
 const ReviewModel = require("./models/Review");
+const FeedbackModel = require("./models/Feedback");
 
 mongoose.connect("mongodb://127.0.0.1:27017/CineBase");
 
@@ -173,6 +174,18 @@ app.post('/signup', async(req, res)=>{
     res.json({success:true, token:token})
 })
 
+//Creating an endpoint for user feedback
+app.post('/addfeedback', async (req, res)=>{
+    const feedback = new FeedbackModel({
+        name: req.body.name,
+        country: req.body.country,
+        feedback: req.body.feedback
+    })
+    await feedback.save();
+
+    res.json({success:true})
+})
+
 
 // creating endpoint for user login
 app.post('/login', async (req,res)=>{
@@ -253,12 +266,13 @@ app.post('/newReview', fetchUser, async(req, res) => {
     })
 })
 
-//Creating and endpoint for getting all reviews
+//Creating an endpoint for getting all reviews
 app.get('/allreviews', async (req, res)=>{
     let reviews = await ReviewModel.find({});
     console.log("All Reviews Fetched.");
     res.send(reviews);
 })
+
 
 
 //creating endpoint for adding movies in watchlist

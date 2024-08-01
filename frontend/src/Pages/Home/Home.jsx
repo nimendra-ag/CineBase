@@ -4,6 +4,7 @@ import PopularInThisWeek from '../../Components/PopularInThisWeek/PopularInThisW
 import TVShowsComponent from '../../Components/TVShowsComponent/TVShowsComponent'
 import PopularMoviesComponent from '../../Components/PopularMoviesComponent/PopularMoviesComponent'
 import { useNavigate } from 'react-router-dom'
+import FeedbackForm from '../../Components/FeedbackForm/FeedbackForm'
 
 
 const Home = () => {
@@ -288,28 +289,7 @@ const Home = () => {
               </div>
             </div>
             <div className="row">
-              <div className="col-sm-12" style={{padding:'0 100 0 100'}}>
-                <div className="">
-                  <form role="form" id="footer-form" action="mail-it.php" method="post">
-                    <div className="form-group mb-3">
-                      <label className="sr-only" for="name2">Name</label>
-                      <input type="text" className="form-control" id="name2" placeholder="Name"
-                        name="name2" required />
-                    </div>
-                    <div className="form-group mb-3">
-                      <label className="sr-only" for="email2">Email address</label>
-                      <input type="email" className="form-control" id="email2" placeholder="Enter email"
-                        name="email2" required />
-                    </div>
-                    <div className="form-group mb-3">
-                      <label className="sr-only" for="message2">Message</label>
-                      <textarea className="form-control" rows="5" id="message2" placeholder="Message"
-                        name="message2" required></textarea>
-                    </div>
-                    <input type="submit" value="Send" className="btn btn-danger" />
-                  </form>
-                </div>
-              </div>
+              <FeedbackForm/>
             </div>
           </div>
         </div>
