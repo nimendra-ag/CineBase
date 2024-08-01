@@ -186,6 +186,21 @@ app.post('/addfeedback', async (req, res)=>{
     res.json({success:true})
 })
 
+//Creating an endpoint for getting feedbacks
+app.get('/getfeedbacks', async (req, res) => {
+    try {
+        // MongoDB aggregation to get a random sample of 6 feedbacks
+        const feedbacks = await FeedbackModel.aggregate([
+            { $sample: { size: 6 } } // Randomly sample 6 documents
+        ]);
+
+        res.send(feedbacks);
+    } catch (error) {
+        console.error('Error fetching feedbacks:', error);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
 
 // creating endpoint for user login
 app.post('/login', async (req,res)=>{

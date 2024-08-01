@@ -13,6 +13,7 @@ const FeedbackItem = (props) => {
                         style={{
                             marginBottom: '20px',
                             borderRadius: '50%',
+                        
                         }}
                         alt="User"
                     />
