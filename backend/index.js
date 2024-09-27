@@ -16,8 +16,10 @@ const MovieModel = require("./models/Movie");
 const ReviewModel = require("./models/Review");
 const FeedbackModel = require("./models/Feedback");
 const NewsletterEmailModel = require("./models/NewsletterEmail");
+const AdminModel = require("./models/Admin");
 
-mongoose.connect("mongodb://127.0.0.1:27017/CineBase");
+// mongoose.connect("mongodb://127.0.0.1:27017/CineBase");
+mongoose.connect("mongodb+srv://nimendrare4534:MaP8TePzm2XGXo0L@cluster0.llrui.mongodb.net/cinebase");
 
 
 // API Creation    
@@ -97,6 +99,7 @@ app.get('/media/:MediaId', async (req, res)=>{
     console.log(media);
     res.json(media)
 })
+
 // to update media
 app.put('/updatemedia/:MediaId', async (req, res)=>{
     console.log(req.params.MediaId);
@@ -142,7 +145,6 @@ app.post('/subscribetonewsletter', async (req, res)=>{
     res.json({success:true})
 })
 
-
 //creating api for getting a specified number of media from a specified media type
 app.get('/Media', async(req, res) => {
     const mediaType = req.query.mediaType;
@@ -185,6 +187,53 @@ app.post('/signup', async(req, res)=>{
 
     const token = jwt.sign(data, 'secret_cinebase_user');
     res.json({success:true, token:token})
+})
+
+//Creating an endpoint for registering admins
+app.post('/newadmin', async(req, res)=>{
+    let check = await AdminModel.findOne({email:req.body.email})
+    if(check){
+        return res.status(400).json({success:false, error:"existing admin found with the same email address."})
+    }
+
+    const admin = new AdminModel({
+        email: req.body.email,
+        password: req.body.password,
+    })
+
+    await admin.save();
+
+    const data = {
+        admin:{
+            id: admin.id
+        }
+    }
+
+    const token = jwt.sign(data, 'secret_cinebase_admin');
+    res.json({success:true, token:token})
+})
+
+//Creating an endpoint for admin login
+app.post('/adminlogin', async (req,res)=>{
+    let admin = await AdminModel.findOne({email:req.body.email});
+    if(admin){
+        const passCompare = req.body.password === admin.password;
+        if(passCompare){
+            const data = {
+                admin:{
+                    id:admin.id
+                }
+            }
+            const token = jwt.sign(data, 'secret_cinebase_admin');
+            res.json({success:true, token: token});
+        }
+        else{
+            res.json({success:false, error:"Wrong Password"});
+        }
+    }
+    else{
+        res.json({success:false, error:"Wrong Email ID"});
+    }
 })
 
 //Creating an endpoint for user feedback

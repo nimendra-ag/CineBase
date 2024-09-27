@@ -11,7 +11,11 @@
 .nav-logo{
     width: 200px;
 }
-
+.nav-title{
+    font-size: 1.0rem;
+    font-weight: 600;
+    color: #333;
+}
 .nav-profile{
     width: 75px;
 }

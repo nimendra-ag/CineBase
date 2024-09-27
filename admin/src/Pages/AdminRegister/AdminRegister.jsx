@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import './Signin.css'
+import './AdminRegister.css'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-const Signin = () => {
+const AdminRegister = () => {
 
     const [formData, setFormData] = useState({
         email: '',
@@ -14,17 +14,17 @@ const Signin = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     }
 
-    const login = async () =>{
+    const register = async () =>{
         console.log("Login Fucntin executed", formData);
 
         try{
-          const response = await axios.post('http://localhost:4000/login', formData);
+          const response = await axios.post('http://localhost:4000/newadmin', formData);
           const responseData = response.data;
           console.log("this is response data ", responseData);
     
           if(responseData.success){
             localStorage.setItem('auth-token', responseData.token);
-            window.location.replace('/');
+            window.location.replace('/listmovies');
         }
         else{
             alert(responseData.error)
@@ -35,11 +35,11 @@ const Signin = () => {
         }
       }
 
-    return (
-        <div>
-
+  return (
+    
+    <div>
             <div className="form-signin" style={{marginTop:'100px', backgroundColor:'#141414', borderRadius:'10px'}}>
-                    <h1 className="h3 mb-3 fw-normal">Sign in</h1>
+                    <h1 className="h3 mb-3 fw-normal" style={{color:"white"}}>Register a new admin</h1>
 
                     <div className="form-floating mb-3">
                         <input type="email" name='email' value={formData.email} onChange={changeHandler} className="form-control" id="floatingInput" style={{borderRadius:'5px'}}/>
@@ -52,11 +52,10 @@ const Signin = () => {
                     </div>
 
 
-                    <button className="w-100 btn btn-danger" type="submit" onClick={()=>{login()}}>Sign in</button>
-                    <p className="mt-5 mb-3 text-white-50">New to CineBase?&nbsp;&nbsp;<Link style={{ textDecoration: 'none', color:'white'}} to='/signup'>Signup Now</Link></p>
+                    <button className="w-100 btn btn-danger" type="submit" onClick={()=>{register()}}>Register</button>
             </div>
         </div>
-    )
+  )
 }
 
-export default Signin
+export default AdminRegister
