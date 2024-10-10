@@ -24,7 +24,12 @@ const NewsletterEmailModel = require("./models/NewsletterEmail");
 const AdminModel = require("./models/Admin");
 
 // mongoose.connect("mongodb://127.0.0.1:27017/CineBase");
-mongoose.connect("mongodb+srv://nimendrare4534:MaP8TePzm2XGXo0L@cluster0.llrui.mongodb.net/cinebase");
+// mongoose.connect("mongodb+srv://nimendrare4534:MaP8TePzm2XGXo0L@cluster0.llrui.mongodb.net/cinebase");
+mongoose.connect('mongodb+srv://nimendrare4534:MaP8TePzm2XGXo0L@cluster0.llrui.mongodb.net/cinebase', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    serverSelectionTimeoutMS: 30000, // Increase timeout to 30 seconds
+});
 
 // Cloudinary configuration
 cloudinary.config({
