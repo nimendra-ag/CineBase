@@ -35,7 +35,7 @@ const TVShowsComponent = () => {
             <div class="row">
                 <div class="col-md-12">
                     <div class="mt-5">
-                        <h1 class="text-start">Popular TV Shows</h1>
+                        <h1 class="text-start">Popular Movies</h1>
                     </div>
                 </div>
             </div>
