@@ -7,7 +7,7 @@ const MediaCategory = (props) => {
     const { allMedia } = useContext(MediaContext);
     const categorizedMedia = allMedia.filter(media => media.category === `${props.category}`)
     const randomMedia = categorizedMedia[Math.floor(Math.random() * categorizedMedia.length)];
-    const genres = ["Romance", "Adventure"];
+    const genres = ["Adventure", "Action", "Fantasy", "Comady", "Romance", "Sci-Fi", "Drama"];
     console.log(randomMedia)
     return (
         <>

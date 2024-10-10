@@ -7,6 +7,11 @@ const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
 const { error } = require("console");
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+const cloudinary = require('cloudinary').v2;
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 app.use(express.json());
 app.use(cors());
@@ -21,6 +26,31 @@ const AdminModel = require("./models/Admin");
 // mongoose.connect("mongodb://127.0.0.1:27017/CineBase");
 mongoose.connect("mongodb+srv://nimendrare4534:MaP8TePzm2XGXo0L@cluster0.llrui.mongodb.net/cinebase");
 
+// Cloudinary configuration
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+  });
+
+// Multer configuration
+const storage = new CloudinaryStorage({
+    cloudinary: cloudinary,
+    params: {
+      folder: 'uploads',
+      allowed_formats: ['jpg', 'png', 'jpeg'],
+    },
+  });
+  
+  const upload = multer({ storage });
+
+  app.post('/upload',upload.single('media'), (req, res)=>{       //to upload any image, we will use this endpoint
+    res.json({
+        success:1,
+        image_url: req.file.path
+    })
+})
+
 
 // API Creation    
 app.get("/", (req, res) => {
@@ -33,24 +63,24 @@ app.get("/name", (req, res)=>{
 
 //Image storage engine
 
-const storage = multer.diskStorage({
-    destination: './upload/images',
-    filename: (req, file, cb)=>{
-        return cb(null, `${file.fieldname}_${Date.now()}_${path.basename(file.originalname)}`)
-    }
-})
+// const storage = multer.diskStorage({
+//     destination: './upload/images',
+//     filename: (req, file, cb)=>{
+//         return cb(null, `${file.fieldname}_${Date.now()}_${path.basename(file.originalname)}`)
+//     }
+// })
 
-const upload = multer({storage:storage})
+// const upload = multer({storage:storage})
 
 //Creating Upload endpoint for images
-app.use('/images', express.static('upload/images'))    //path of the folder 
+// app.use('/images', express.static('upload/images'))    //path of the folder 
 
-app.post('/upload',upload.single('media'), (req, res)=>{       //to upload any image, we will use this endpoint
-    res.json({
-        success:1,
-        image_url: `http://localhost:${port}/images/${req.file.filename}`
-    })
-})
+// app.post('/upload',upload.single('media'), (req, res)=>{       //to upload any image, we will use this endpoint
+//     res.json({
+//         success:1,
+//         image_url: `http://localhost:${port}/images/${req.file.filename}`
+//     })
+// })
 
 
 //Creating the endpoint for adding the movie
@@ -153,6 +183,7 @@ app.get('/Media', async(req, res) => {
    let media = await MovieModel.find({
         category: mediaType
    });
+
    let selectedMedia = media.sort((a, b) => 0.5 - Math.random()).slice(0, count); //shuffling
    console.log(selectedMedia);
    res.send(selectedMedia);
@@ -351,7 +382,6 @@ app.get('/allreviews', async (req, res)=>{
 })
 
 
-
 //creating endpoint for adding movies in watchlist
 app.post('/addtowatchlist', fetchUser, async (req, res)=>{
     let userData = await UserModel.findOne({_id:req.user.id});
@@ -373,6 +403,7 @@ app.post('/removefromwatchlist', fetchUser, async (req, res)=>{
 //creating endpoint to get watchlist data
 app.post('/getwatchlist', fetchUser, async (req, res)=>{
     let userData = await UserModel.findOne({_id:req.user.id});
+    console.log(userData);
     res.json(userData.watchlistData);
 })
 app.listen(port, (error) => {
