@@ -1,13 +1,12 @@
-import React, { useState } from 'react'
-import './AddMovie.css'
-import upload_area from '../../assets/upload_area.svg'
+import React, { useState } from 'react';
+import './AddMovie.css';
+import upload_area from '../../assets/upload_area.svg';
 import axios from 'axios';
 
-
 const AddMovie = () => {
-    const [caroImage, setCaroImage] = useState(false);
-    const [cardImage, setCardImage] = useState(false);
-    const [displayImage, setDisplayImage] = useState(false);
+    const [caroImage, setCaroImage] = useState(null);
+    const [cardImage, setCardImage] = useState(null);
+    const [displayImage, setDisplayImage] = useState(null);
 
     const [movieDetails, setMovieDetails] = useState({
         name: "",
@@ -24,35 +23,44 @@ const AddMovie = () => {
         supportActor: "",
         description: "",
         category: "TVShow",
-    })
+    });
+
+    const [loading, setLoading] = useState(false);
 
     const displayImageHandler = (e) => {
-
         setDisplayImage(e.target.files[0]);
-        console.log(`Image added, ${displayImage}`);
-    }
+    };
 
     const cardImageHandler = (e) => {
-
         setCardImage(e.target.files[0]);
-        console.log(`Image added, ${cardImage}`);
-    }
+    };
 
     const caroImageHandler = (e) => {
-
         setCaroImage(e.target.files[0]);
-        console.log(`Image added, ${caroImage}`);
-    }
+    };
 
     const changeHandler = (e) => {
-        setMovieDetails({ ...movieDetails, [e.target.name]: e.target.value })
-    }
+        setMovieDetails({ ...movieDetails, [e.target.name]: e.target.value });
+    };
+
+    const validateForm = () => {
+        const requiredFields = ['name', 'trailor', 'director', 'releasedYear', 'rating', 'leadActor', 'supportActor', 'description'];
+        for (let field of requiredFields) {
+            if (!movieDetails[field]) {
+                return false;
+            }
+        }
+        return caroImage && cardImage && displayImage;
+    };
 
     const Add_Movie = async () => {
-        console.log(movieDetails);
-        let responseDataCaro;
-        let responseDataCard;
-        let responseDataDisplay;
+        if (!validateForm()) {
+            alert('Please fill out all required fields.');
+            return;
+        }
+
+        setLoading(true);
+        let responseDataCaro, responseDataCard, responseDataDisplay;
         let movie = movieDetails;
         let formDataCaro = new FormData();
         let formDataCard = new FormData();
@@ -63,39 +71,30 @@ const AddMovie = () => {
         formDataDisplay.append('media', displayImage);
 
         try {
-            const response = await axios.post('http://localhost:4000/upload', formDataCaro, {
-                headers: {
-                    Accept: 'application/json',
-                },
+            const responseCaro = await axios.post('http://localhost:4000/upload', formDataCaro, {
+                headers: { Accept: 'application/json' },
             });
-            responseDataCaro = response.data;
-            console.log(responseDataCaro);
+            responseDataCaro = responseCaro.data;
         } catch (error) {
-            console.error('Error uploading images:', error);
+            console.error('Error uploading carousel image:', error);
         }
 
         try {
-            const response = await axios.post('http://localhost:4000/upload', formDataCard, {
-                headers: {
-                    Accept: 'application/json',
-                },
+            const responseCard = await axios.post('http://localhost:4000/upload', formDataCard, {
+                headers: { Accept: 'application/json' },
             });
-            responseDataCard = response.data;
-            console.log(responseDataCard);
+            responseDataCard = responseCard.data;
         } catch (error) {
-            console.error('Error uploading images:', error);
+            console.error('Error uploading card image:', error);
         }
 
         try {
-            const response = await axios.post('http://localhost:4000/upload', formDataDisplay, {
-                headers: {
-                    Accept: 'application/json',
-                },
+            const responseDisplay = await axios.post('http://localhost:4000/upload', formDataDisplay, {
+                headers: { Accept: 'application/json' },
             });
-            responseDataDisplay = response.data;
-            console.log(responseDataDisplay);
+            responseDataDisplay = responseDisplay.data;
         } catch (error) {
-            console.error('Error uploading images:', error);
+            console.error('Error uploading display image:', error);
         }
 
         if (responseDataCaro.success && responseDataCard.success && responseDataDisplay.success) {
@@ -103,10 +102,8 @@ const AddMovie = () => {
             movie.cardImage = responseDataCard.image_url;
             movie.displayImage = responseDataDisplay.image_url;
 
-            console.log(movie);
-
             try {
-                const response = await axios.post('http://localhost:4000/addmovie', movieDetails, {
+                const response = await axios.post('http://localhost:4000/addmovie', movie, {
                     headers: {
                         Accept: 'application/json',
                         'Content-Type': 'application/json',
@@ -114,17 +111,41 @@ const AddMovie = () => {
                 });
 
                 if (response.data.success) {
-                    alert("Movie Added");
+                    alert("Movie added successfully!");
+                    setMovieDetails({
+                        name: "",
+                        caroImage: "",
+                        cardImage: "",
+                        displayImage: "",
+                        trailor: "",
+                        director: "",
+                        releasedYear: "",
+                        rating: "",
+                        genre1: "Drama",
+                        genre2: "Drama",
+                        leadActor: "",
+                        supportActor: "",
+                        description: "",
+                        category: "TVShow",
+                    });
+                    setCaroImage(null);
+                    setCardImage(null);
+                    setDisplayImage(null);
+                    setLoading(false);
+                    window.location.reload(); // Reload the page
                 } else {
-                    alert("Failed to add Movie");
+                    alert("Failed to add movie");
                 }
             } catch (error) {
-                console.error('Error adding movie:', error.response ? error.response.data : error.message);
-                alert("Failed to add Movie");
+                console.error('Error adding movie:', error);
+                alert("Failed to add movie");
             }
-
+        } else {
+            alert("Failed to upload images");
         }
-    }
+        setLoading(false);
+    };
+
     return (
         <div className='add-product'>
             <div className="addproduct-price">
@@ -238,7 +259,18 @@ const AddMovie = () => {
                 </div>
             </div>
 
-            <button onClick={() => { Add_Movie() }} className='addproduct-button'>ADD</button>
+            <button
+                onClick={() => { Add_Movie() }}
+                className='addproduct-button btn btn-danger text-center'
+            >
+                {loading ? (
+                    <div className="spinner-border spinner-border-sm text-light" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </div>
+                ) : (
+                    'Add Movie'
+                )}
+            </button>
         </div>
     )
 }
