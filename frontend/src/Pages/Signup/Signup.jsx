@@ -8,33 +8,35 @@ const Signup = () => {
         email: '',
         password: '',
         username: ''
-    })
+    });
+    const [loading, setLoading] = useState(false);
 
     const changeHandler = (e) => {
-        setFormData({...formData, [e.target.name]: e.target.value});
+        setFormData({ ...formData, [e.target.name]: e.target.value });
     }
     const signup = async () => {
         console.log("Signup function executed", formData);
 
-        try{
+        setLoading(true) // Start spinner
+        try {
             const response = await axios.post('http://localhost:4000/signup', formData);
             const responseData = response.data;
             console.log("This is the response data", responseData);
 
-            if(responseData.success){
+            if (responseData.success) {
                 localStorage.setItem('auth-token', responseData.token);
                 window.location.replace('/');
             }
-            else{
+            else {
                 alert(responseData.error)
             }
-        }catch(err){
+        } catch (err) {
             alert(err);
         }
     }
 
     return (
-        <section  style={{marginTop:'100px', marginBottom:"100px"}}>
+        <section style={{ marginTop: '100px', marginBottom: "100px" }}>
 
             <div className="container-fluid">
 
@@ -53,7 +55,7 @@ const Signup = () => {
                             <p class="h5"><i class="bi bi-check2-circle"></i> Sign up for CineBase today and discover movie magic!.</p>
                         </div>
 
-                        <div className="col-md-6 p-4" style={{borderRadius: "8px", backgroundColor:'#141414'}}>
+                        <div className="col-md-6 p-4" style={{ borderRadius: "8px", backgroundColor: '#141414' }}>
 
                             <div className="mb-3 text-center text-white">
                                 <h1>Create Account</h1>
@@ -61,17 +63,17 @@ const Signup = () => {
                             </div>
 
                             <div className="mb-3">
-                                <label className="mb-2 text-white" style={{ fontSize: '18px'}}>Your Name</label>
+                                <label className="mb-2 text-white" style={{ fontSize: '18px' }}>Your Name</label>
                                 <input type="text" name='username' value={formData.username} onChange={changeHandler} className="form-control" aria-label="Name" />
                             </div>
 
                             <div className="mb-3">
-                                <label className="mb-2 text-white" style={{ fontSize: '18px'}}>Your Email</label>
+                                <label className="mb-2 text-white" style={{ fontSize: '18px' }}>Your Email</label>
                                 <input type="email" name='email' value={formData.email} onChange={changeHandler} className="form-control" aria-label="Email" />
                             </div>
 
                             <div className="mb-3">
-                                <label className="mb-2 text-white" style={{ fontSize: '18px'}}>Your Password</label>
+                                <label className="mb-2 text-white" style={{ fontSize: '18px' }}>Your Password</label>
                                 <input type="password" name='password' value={formData.password} onChange={changeHandler} className="form-control" aria-label="Password" />
                             </div>
 
@@ -82,10 +84,23 @@ const Signup = () => {
                                     <a href="#" className='text-white-50'> Privacy Policy</a>.
                                 </p>
                             </div>
-                          
-                            <button type="submit" onClick={()=>{signup()}} className="btn btn-danger text-center">Sign Up</button>
-                            
-                            <p style={{ fontSize: '16px', marginTop: "30px" }} className='text-white-50'>Already have an account?&nbsp;&nbsp;<Link style={{ textDecoration: 'none', color:'white'}} to='/login'>Signin here</Link></p>
+
+                            <button
+                                type="submit"
+                                onClick={() => { signup() }}
+                                className="btn btn-danger text-center"
+                                disabled={loading} // Disable button when loading
+                            >
+                                {loading ? (
+                                    <div className="spinner-border spinner-border-sm text-light" role="status">
+                                        <span className="visually-hidden">Loading...</span>
+                                    </div>
+                                ) : (
+                                    'Sign Up'
+                                )}
+                            </button>
+
+                            <p style={{ fontSize: '16px', marginTop: "30px" }} className='text-white-50'>Already have an account?&nbsp;&nbsp;<Link style={{ textDecoration: 'none', color: 'white' }} to='/login'>Signin here</Link></p>
                         </div>
                     </div>
                 </div>
