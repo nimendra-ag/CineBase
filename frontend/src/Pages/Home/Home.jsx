@@ -8,6 +8,8 @@ import FeedbackForm from '../../Components/FeedBackForm/FeedbackForm'
 import FeedbackItem from '../../Components/FeedbackItem/FeedbackItem'
 import FeedbackSection from '../../Components/FeedbackSeciton/FeedbackSection'
 import SubscribeToNewsletter from '../../Components/SubscribeToNewsletter/SubscribeToNewsletter'
+import homeimage1 from '../../assets/Images/home1.png'
+import homeimage2 from '../../assets/Images/home2.png'
 
 const Home = () => {
   const navigate = useNavigate();
@@ -121,7 +123,7 @@ const Home = () => {
 
               <div className="col-sm-12 col-lg-4">
                 <div>
-                  <img src="https://picsum.photos/500/300" className="img-fluid mx-auto d-block" />
+                  <img src={homeimage1} className="img-fluid mx-auto d-block" />
                 </div>
               </div>
 
@@ -144,7 +146,7 @@ const Home = () => {
               </div>
               <div className="col-sm-12 col-lg-4">
                 <div>
-                  <img src="https://picsum.photos/500/300" className="img-fluid mx-auto d-block" />
+                  <img src={homeimage2} className="img-fluid mx-auto d-block" />
                 </div>
               </div>
             </div>
