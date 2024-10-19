@@ -22,7 +22,7 @@ const MediaCategory = (props) => {
                             <h4>{randomMedia.rating} IMDB Score</h4>
                             <h4>{randomMedia.genre1}, {randomMedia.genre2}</h4>
                             <p>{randomMedia.description}</p>
-                            <a href={randomMedia.trailor} target='_blank' className="btn btn-primary"><i className="bi bi-play"></i>Trailor</a>
+                            <a href={randomMedia.trailor} target='_blank' className="btn btn-danger"><i className="bi bi-play"></i>Trailor</a>
                         </div>
                     </div>
                 </div></> : <></>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, {useEffect} from 'react'
 import './Home.css'
 import PopularInThisWeek from '../../Components/PopularInThisWeek/PopularInThisWeek'
 import TVShowsComponent from '../../Components/TVShowsComponent/TVShowsComponent'
@@ -10,95 +10,22 @@ import FeedbackSection from '../../Components/FeedbackSeciton/FeedbackSection'
 import SubscribeToNewsletter from '../../Components/SubscribeToNewsletter/SubscribeToNewsletter'
 import homeimage1 from '../../assets/Images/home1.png'
 import homeimage2 from '../../assets/Images/home2.png'
+import HomeCarousel from '../../../../admin/src/Components/HomeCarousel/HomeCarousel'
 
 const Home = () => {
+  
   const navigate = useNavigate();
 
   useEffect(() => {
     if (!localStorage.getItem('auth-token')) {
       navigate('/login');
     }
+
   }, [navigate]);
 
   return (
     <>
-      <div className="section">
-        <div className="container-fluid1">
-          <div id="carouselExampleDark" className="carousel slide carousel-fade" data-bs-ride="carousel">
-            <div className="carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0"
-                className="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
-                aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
-                aria-label="Slide 3"></button>
-            </div>
-            <div className="carousel-inner">
-              <div className="carousel-item active" data-bs-interval="3000">
-                <img src="https://picsum.photos/1920/980" className="d-block w-100" alt="..." />
-                <div className="carousel-caption d-none d-md-block text-start">
-                  <div>
-                    <h6>New Releases</h6>
-                    <h1>Titanic</h1>
-                    <h4>Leonardo Decaprio, Kate Winslet</h4>
-                    <h4>7.3 IMDB Score </h4>
-                    <h4> Romance, Action</h4>
-                    <p>Some representative placeholder content for the first Lorem, ipsum dolor sit
-                      amet consectetur adipisicing elit. Nostrum in hic earum numquam ipsum
-                      impedit vitae facilis natus sed doloribus?
-                    </p>
-                    <button type="button" className="btn btn-primary btn-lg">Large button</button>
-                  </div>
-                </div>
-              </div>
-              <div className="carousel-item" data-bs-interval="3000">
-                <img src="https://picsum.photos/1920/980?blur" className="d-block w-100" alt="..." />
-                <div className="carousel-caption d-none d-md-block text-start">
-                  <div>
-                    <h6>New Releases</h6>
-                    <h1>Titanic</h1>
-                    <h4>Leonardo Decaprio, Kate Winslet</h4>
-                    <h4>7.3 IMDB Score </h4>
-                    <h4> Romance, Action</h4>
-                    <p>Some representative placeholder content for the first Lorem, ipsum dolor sit
-                      amet consectetur adipisicing elit. Nostrum in hic earum numquam ipsum
-                      impedit vitae facilis natus sed doloribus?
-                    </p>
-                    <button type="button" className="btn btn-primary btn-lg">Large button</button>
-                  </div>
-                </div>
-              </div>
-              <div className="carousel-item" data-bs-interval="3000">
-                <img src="https://picsum.photos/1920/980?grayscale" className="d-block w-100" alt="..." />
-                <div className="carousel-caption d-none d-md-block text-start">
-                  <div>
-                    <h6>New Releases</h6>
-                    <h1>Titanic</h1>
-                    <h4>Leonardo Decaprio, Kate Winslet</h4>
-                    <h4>7.3 IMDB Score </h4>
-                    <h4> Romance, Action</h4>
-                    <p>Some representative placeholder content for the first Lorem, ipsum dolor sit
-                      amet consectetur adipisicing elit. Nostrum in hic earum numquam ipsum
-                      impedit vitae facilis natus sed doloribus?
-                    </p>
-                    <button type="button" className="btn btn-primary btn-lg">Large button</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div >
-          <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
-            data-bs-slide="prev">
-            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span className="visually-hidden">Previous</span>
-          </button>
-          <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
-            data-bs-slide="next">
-            <span className="carousel-control-next-icon" aria-hidden="true"></span>
-            <span className="visually-hidden">Next</span>
-          </button>
-        </div >
-      </div >
+      <HomeCarousel/>
 
       <section>
 

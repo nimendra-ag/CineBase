@@ -5,8 +5,8 @@ import { MediaContext } from '../../Context/MediaContext';
 const Item = (props) => {
     const [isHovered, setIsHovered] = useState(false);
     const { addtoWatchlist } = useContext(MediaContext);
-    console.log("This is from the item component")
-    console.log(props, props.name, props.id)
+    // console.log("This is from the item component")
+    // console.log(props, props.name, props.id)
     return (
         <>
             <div className="col col-md-4 col-lg-2 col-xl-2 mb-4">

@@ -30,7 +30,7 @@ const MediaContextProvider = (props) => {
                     }
                 })
                 .then((response) => {
-                    console.log(response.data)
+                    // console.log(response.data)
                 })
                 .catch((error) => {
                     console.error("There was an error!", error);
@@ -44,7 +44,7 @@ const MediaContextProvider = (props) => {
         if (localStorage.getItem('auth-token')) {
             axios.post('http://localhost:4000/removefromwatchlist', { mediaId }, { headers: { 'Accept': 'application/form-data', 'auth-token': localStorage.getItem('auth-token'), 'Content-Type': 'application/json' } })
                 .then((response) => {
-                    console.log(response.data)
+                    // console.log(response.data)
                 })
                 .catch((error) => {
                     console.error("There was an error!", error);
@@ -66,7 +66,7 @@ const MediaContextProvider = (props) => {
         if (localStorage.getItem('auth-token')) {
             axios.post('http://localhost:4000/getwatchlist', {}, { headers: { 'Accept': 'application/form-data', 'auth-token': localStorage.getItem('auth-token'), 'Content-Type': 'application/json' } })
                 .then((response) => {
-                    console.log(response.data);
+                    // console.log(response.data);
                     setWatchlist(response.data);
                 })
                 .catch((error) => {
