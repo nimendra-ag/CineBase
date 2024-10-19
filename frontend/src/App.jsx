@@ -26,7 +26,7 @@ function App() {
           <Route path='/tvshows' element={<MediaCategory category="TVShow"/>}/>
           <Route path='/movies' element={<MediaCategory category="Movie"/>}/>
           <Route path='/profile' element={<Profile/>}/>
-          <Route path='/changepassword' element={<ChangePassword/>}/>
+          {/* <Route path='/changepassword' element={<ChangePassword/>}/> */}
           <Route path='/media' element={<Media/>}>
             <Route path=':mediaId' element={<Media/>}/>
           </Route>

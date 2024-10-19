@@ -29,7 +29,7 @@ const Navbar = () => {
               <div className="dropdown-content" style={{ backgroundColor: '#1A1A1A' }}>
                 <Link to='/profile'><button className='btn text-start text-white' style={{ padding: '5px 5px', border:'0px'}}>Profile</button></Link>
                 <Link to='/watchlist'><button className='btn text-start text-white' style={{ padding: '5px 5px', border:'0px'}}>Watchlist</button></Link>
-                <Link to='/changepassword'><button className='btn text-start text-white' style={{ padding: '5px 5px', border:'0px' }}>Change<br />Password</button></Link>
+                {/* <Link to='/changepassword'><button className='btn text-start text-white' style={{ padding: '5px 5px', border:'0px' }}>Change<br />Password</button></Link> */}
                 {localStorage.getItem('auth-token')
                   ? <Link><button className='btn text-white text-start' style={{ padding: '5px 5px', border:'0px'}} onClick={() => { localStorage.removeItem('auth-token'); window.location.replace('/login') }}>Logout</button></Link>
                   : <Link to='/login'><button className='btn text-start text-white' style={{ padding: '5px 5px', border:'0px'}}>Login</button></Link>}
