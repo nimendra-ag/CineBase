@@ -28,7 +28,6 @@ const Home = () => {
       <HomeCarousel/>
 
       <section>
-
         <div className="section">
           <div className="container p-5" id="about">
             <div className="row pb-5">

@@ -288,9 +288,7 @@ app.post('/addfeedback', async (req, res)=>{
 app.get('/getfeedbacks', async (req, res) => {
     try {
         // MongoDB aggregation to get a random sample of 6 feedbacks
-        const feedbacks = await FeedbackModel.aggregate([
-            { $sample: { size: 6 } } // Randomly sample 6 documents
-        ]);
+        const feedbacks = await FeedbackModel.find({});
 
         res.send(feedbacks);
     } catch (error) {

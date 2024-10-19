@@ -1,21 +1,12 @@
 import React from 'react'
-import { useContext, useEffect, useState } from 'react';
+import { useContext} from 'react';
 import { MediaContext } from '../../../../frontend/src/Context/MediaContext';
 
 const HomeCarousel = () => {
     const { allMedia } = useContext(MediaContext);
-    console.log("This is the home page", allMedia.length);
     const carouselImage1 = allMedia[Math.floor(Math.random() * allMedia.length)];
     const carouselImage2 = allMedia[Math.floor(Math.random() * allMedia.length)];
     const carouselImage3 = allMedia[Math.floor(Math.random() * allMedia.length)];
-
-    console.log("home carooooooooooooooo");
-    console.log(carouselImage1);
-    console.log(carouselImage2);
-    console.log(carouselImage3);
-
-
-
 
     return (
         <>
@@ -85,8 +76,6 @@ const HomeCarousel = () => {
                         </button>
                     </div >
                 </div ></> : <></>}
-
-
         </>
     )
 }
